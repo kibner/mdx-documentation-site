@@ -5,8 +5,8 @@ import SvgIcon from "@material-ui/core/SvgIcon"
 const StyledSvgIcon = withStyles(theme => ({
   root: {
     verticalAlign: "text-top",
-    fontSize: "inherit",
-  },
+    fontSize: "inherit"
+  }
 }))(SvgIcon)
 
 const DieSvgIconWrapper = props => (

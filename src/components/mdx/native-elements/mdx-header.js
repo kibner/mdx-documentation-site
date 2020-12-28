@@ -10,17 +10,17 @@ const StyledHeader = withStyles(theme => ({
       scrollMarginTop: `${
         theme.mixins.toolbar[
           "@media (min-width:0px) and (orientation: landscape)"
-        ].minHeight + theme.spacing(1)
-      }px`,
+          ].minHeight + theme.spacing(1)
+      }px`
     },
     "@media (min-width:600px)": {
       scrollMarginTop: `${
         theme.mixins.toolbar["@media (min-width:600px)"].minHeight +
         theme.spacing(1)
-      }px`,
+      }px`
     },
     "&:hover > a.anchor > svg": {
-      visibility: "visible",
+      visibility: "visible"
     },
     "&>a": {
       fill: theme.palette.text.secondary,
@@ -29,10 +29,10 @@ const StyledHeader = withStyles(theme => ({
       paddingRight: theme.spacing(0.5),
       "&>svg": {
         visibility: "hidden",
-        verticalAlign: "middle",
-      },
-    },
-  },
+        verticalAlign: "middle"
+      }
+    }
+  }
 }))(Typography)
 
 const MdxHeader = props => <StyledHeader {...props} />

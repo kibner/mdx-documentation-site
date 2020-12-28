@@ -9,8 +9,8 @@ import TableOfContentsNode from "./table-of-contents-node"
 const useStyles = makeStyles(theme => ({
   list: {
     backgroundColor: theme.palette.background.paper,
-    width: 240,
-  },
+    width: 240
+  }
 }))
 
 const TableOfContents = props => {
@@ -34,15 +34,15 @@ const TableOfContents = props => {
       >
         {hasTableOfContents
           ? currentNode.table_of_contents.items.map(tableOfContentsNode => (
-              <TableOfContentsNode
-                key={tableOfContentsNode.title}
-                node={tableOfContentsNode}
-                slug={currentNode.slug}
-              />
-            ))
+            <TableOfContentsNode
+              key={tableOfContentsNode.title}
+              node={tableOfContentsNode}
+              slug={currentNode.slug}
+            />
+          ))
           : currentNode.children.map(pageNode => (
-              <PageNode key={pageNode.id} node={pageNode} />
-            ))}
+            <PageNode key={pageNode.id} node={pageNode} />
+          ))}
       </List>
       <MdxDivider />
     </Fragment>

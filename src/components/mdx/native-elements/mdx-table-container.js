@@ -6,8 +6,8 @@ import Table from "@material-ui/core/Table"
 
 const StyledTableContainer = withStyles(theme => ({
   root: {
-    marginBottom: theme.spacing(2),
-  },
+    marginBottom: theme.spacing(2)
+  }
 }))(TableContainer)
 
 const MdxTableContainer = props => (

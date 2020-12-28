@@ -7,17 +7,17 @@ import MuiLink from "@material-ui/core/Link"
 // and partiallyActive, destructure the prop here and
 // pass it only to GatsbyLink
 const Link = ({
-  children,
-  to,
-  href,
-  activeClassName,
-  partiallyActive,
-  title,
-  className,
-  internalClassName,
-  externalClassName,
-  ...other
-}) => {
+                children,
+                to,
+                href,
+                activeClassName,
+                partiallyActive,
+                title,
+                className,
+                internalClassName,
+                externalClassName,
+                ...other
+              }) => {
   // internal links start with / or #
   let url = to ?? href
   const firstCharacter = url[0]

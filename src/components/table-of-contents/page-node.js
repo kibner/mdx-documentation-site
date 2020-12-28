@@ -7,11 +7,11 @@ import TableOfContentsNode from "./table-of-contents-node"
 
 const useStyles = makeStyles(theme => ({
   nested: props => ({
-    paddingLeft: theme.spacing(props.spacing),
+    paddingLeft: theme.spacing(props.spacing)
   }),
   page: {
-    color: theme.palette.text.primary,
-  },
+    color: theme.palette.text.primary
+  }
 }))
 
 const PageNode = props => {

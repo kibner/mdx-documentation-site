@@ -6,11 +6,11 @@ import Collapse from "@material-ui/core/Collapse"
 
 const useStyles = makeStyles(theme => ({
   nested: props => ({
-    paddingLeft: theme.spacing(props.spacing),
+    paddingLeft: theme.spacing(props.spacing)
   }),
   heading: {
-    color: theme.palette.text.secondary,
-  },
+    color: theme.palette.text.secondary
+  }
 }))
 
 const TableOfContentsNode = props => {

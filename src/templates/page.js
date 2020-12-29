@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"
+import React from "react"
 import { graphql } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
@@ -24,11 +24,7 @@ export default function PageTemplate({ data: { mdx } }) {
   return (
     <Layout navigationTree={navigationTree} breadcrumbNodes={breadcrumbNodes}>
       <SEO title={mdx.frontmatter.title} />
-      {currentNode ? (
-        <Breadcrumbs breadcrumbNodes={breadcrumbNodes} />
-      ) : (
-        <Fragment />
-      )}
+      <Breadcrumbs breadcrumbNodes={breadcrumbNodes} />
       <Typography variant={"h2"}>{mdx.frontmatter.title}</Typography>
       <MdxDivider variant={"fullWidth"} />
       <TableOfContents currentNode={currentNode} />

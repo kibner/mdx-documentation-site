@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Fragment } from "react"
 import { default as MaterialBreadcrumbs } from "@material-ui/core/Breadcrumbs"
 import Link from "./link"
 import Typography from "@material-ui/core/Typography"
@@ -33,35 +33,39 @@ const Breadcrumbs = props => {
   const classes = useStyles()
   const { breadcrumbNodes } = props
 
-  return (
-    <MaterialBreadcrumbs aria-label={"breadcrumb"} className={classes.root}>
-      <Link to="/" className={`${classes.breadcrumb} ${classes.link}`}>
-        <HomeIcon className={classes.icon} />
-        Home
-      </Link>
-      {breadcrumbNodes.map((node, index, array) => {
-        if (index < array.length - 1) {
+  if (breadcrumbNodes) {
+    return (
+      <MaterialBreadcrumbs aria-label={"breadcrumb"} className={classes.root}>
+        <Link to="/" className={`${classes.breadcrumb} ${classes.link}`}>
+          <HomeIcon className={classes.icon} />
+          Home
+        </Link>
+        {breadcrumbNodes.map((node, index, array) => {
+          if (index < array.length - 1) {
+            return (
+              <Link
+                key={node.id}
+                to={node.slug}
+                className={`${classes.breadcrumb} ${classes.link}`}
+              >
+                {node.title}
+              </Link>
+            )
+          }
           return (
-            <Link
+            <Typography
               key={node.id}
-              to={node.slug}
-              className={`${classes.breadcrumb} ${classes.link}`}
+              className={`${classes.breadcrumb} ${classes.currentPage}`}
             >
               {node.title}
-            </Link>
+            </Typography>
           )
-        }
-        return (
-          <Typography
-            key={node.id}
-            className={`${classes.breadcrumb} ${classes.currentPage}`}
-          >
-            {node.title}
-          </Typography>
-        )
-      })}
-    </MaterialBreadcrumbs>
-  )
+        })}
+      </MaterialBreadcrumbs>
+    )
+  } else {
+    return <Fragment />
+  }
 }
 
 export default Breadcrumbs

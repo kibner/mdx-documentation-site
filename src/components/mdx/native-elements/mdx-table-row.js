@@ -5,9 +5,9 @@ import React from "react"
 const StyledTableRow = withStyles(theme => ({
   root: {
     "&:nth-of-type(odd)": {
-      backgroundColor: theme.palette.action.hover
-    }
-  }
+      backgroundColor: theme.palette.action.hover,
+    },
+  },
 }))(TableRow)
 
 const MdxTableRow = props => <StyledTableRow {...props} />

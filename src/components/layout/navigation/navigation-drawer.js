@@ -9,14 +9,14 @@ import NavigationNode from "./navigation-node"
 
 const useStyles = makeStyles(theme => ({
   link: {
-    color: theme.palette.text.primary
+    color: theme.palette.text.primary,
   },
   navigation: {
     width: "100%",
     position: "relative",
     overflow: "auto",
-    backgroundColor: theme.palette.background.secondary
-  }
+    backgroundColor: theme.palette.background.secondary,
+  },
 }))
 
 const NavigationDrawer = props => {

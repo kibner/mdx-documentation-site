@@ -8,13 +8,13 @@ const useStyles = makeStyles(theme => ({
   drawer: props => ({
     [theme.breakpoints.up("sm")]: {
       width: props.drawerWidth,
-      flexShrink: 0
-    }
+      flexShrink: 0,
+    },
   }),
   drawerPaper: props => ({
     backgroundColor: theme.palette.background.secondary,
-    width: props.drawerWidth
-  })
+    width: props.drawerWidth,
+  }),
 }))
 
 const Navigation = props => {
@@ -24,7 +24,7 @@ const Navigation = props => {
     handleDrawerToggle,
     mobileOpen,
     navigationTree,
-    breadcrumbNodes
+    breadcrumbNodes,
   } = props
 
   const classes = useStyles({ drawerWidth: drawerWidth })
@@ -44,10 +44,10 @@ const Navigation = props => {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           classes={{
-            paper: classes.drawerPaper
+            paper: classes.drawerPaper,
           }}
           ModalProps={{
-            keepMounted: true // Better open performance on mobile.
+            keepMounted: true, // Better open performance on mobile.
           }}
         >
           <NavigationDrawer
@@ -59,7 +59,7 @@ const Navigation = props => {
       <Hidden xsDown implementation="css">
         <Drawer
           classes={{
-            paper: classes.drawerPaper
+            paper: classes.drawerPaper,
           }}
           variant="permanent"
           open

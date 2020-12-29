@@ -6,11 +6,11 @@ import { makeStyles } from "@material-ui/core/styles"
 
 const useStyles = makeStyles(theme => ({
   nested: props => ({
-    paddingLeft: theme.spacing(props.spacing)
+    paddingLeft: theme.spacing(props.spacing),
   }),
   page: {
-    color: theme.palette.text.primary
-  }
+    color: theme.palette.text.primary,
+  },
 }))
 
 const initialOpenState = (breadcrumbNodes, node) => {

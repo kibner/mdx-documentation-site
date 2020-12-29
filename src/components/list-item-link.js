@@ -13,7 +13,7 @@ const ListItemLink = props => {
     handleExpansionClick,
     className,
     icon,
-    activeClassName
+    activeClassName,
   } = props
 
   const CustomLink = React.useMemo(

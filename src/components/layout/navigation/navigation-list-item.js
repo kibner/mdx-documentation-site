@@ -4,8 +4,8 @@ import { makeStyles } from "@material-ui/core/styles"
 
 const useStyles = makeStyles(theme => ({
   activeLink: {
-    backgroundColor: theme.palette.action.focus
-  }
+    backgroundColor: theme.palette.action.focus,
+  },
 }))
 
 const NavigationListItem = props => {

@@ -4,11 +4,11 @@ import { makeStyles } from "@material-ui/core/styles"
 
 const useStyles = makeStyles(theme => ({
   internalLink: {
-    color: theme.palette.primary.light
+    color: theme.palette.primary.light,
   },
   externalLink: {
-    color: theme.palette.secondary.light
-  }
+    color: theme.palette.secondary.light,
+  },
 }))
 
 const MdxLink = props => {

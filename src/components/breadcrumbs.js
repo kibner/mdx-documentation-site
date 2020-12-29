@@ -7,16 +7,16 @@ import HomeIcon from "@material-ui/icons/Home"
 
 const useStyles = makeStyles(theme => ({
   root: {
-    marginBottom: theme.spacing(1)
+    marginBottom: theme.spacing(1),
   },
   breadcrumb: {
-    display: "flex"
+    display: "flex",
   },
   link: {
-    color: theme.palette.text.secondary
+    color: theme.palette.text.secondary,
   },
   currentPage: {
-    color: theme.palette.text.primary
+    color: theme.palette.text.primary,
   },
   icon: {
     marginRight: theme.spacing(0.5),
@@ -25,8 +25,8 @@ const useStyles = makeStyles(theme => ({
     } - ${theme.spacing(0.5)}px)`,
     width: `calc(${theme.typography.body1.fontSize} * ${
       theme.typography.body1.lineHeight
-    } - ${theme.spacing(0.5)}px)`
-  }
+    } - ${theme.spacing(0.5)}px)`,
+  },
 }))
 
 const Breadcrumbs = props => {

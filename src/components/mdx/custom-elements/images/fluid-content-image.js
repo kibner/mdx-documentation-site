@@ -7,9 +7,7 @@ const FluidContentImage = props => {
   const { fileName, alt } = props
   const contentImages = useFluidContentImagesQuery()
 
-  const image = contentImages.find(
-    edge => edge.node.relativePath === fileName
-  )
+  const image = contentImages.find(edge => edge.node.relativePath === fileName)
 
   if (!image?.node?.childImageSharp?.fluid) {
     return (

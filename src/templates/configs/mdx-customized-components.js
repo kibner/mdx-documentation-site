@@ -39,7 +39,7 @@ const MdxCustomizedComponents = {
   // strong: ,
   // delete: ,
   // code: ,
-  hr: props => <MdxDivider {...props} />
+  hr: props => <MdxDivider {...props} />,
   // img: ,
 }
 

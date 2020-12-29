@@ -40,13 +40,13 @@ export default function PageTemplate({ data: { mdx } }) {
 }
 
 export const pageQuery = graphql`
-    query($id: String) {
-        mdx(id: { eq: $id }) {
-            id
-            body
-            frontmatter {
-                title
-            }
-        }
+  query($id: String) {
+    mdx(id: { eq: $id }) {
+      id
+      body
+      frontmatter {
+        title
+      }
     }
+  }
 `

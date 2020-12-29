@@ -45,8 +45,7 @@ module.exports = {
       options: {
         name: `mdx-documentation-site`,
         short_name: `mdx-doc-site`,
-        description:
-          "A documentation site that uses MDX pages for content.",
+        description: "A documentation site that uses MDX pages for content.",
         lang: "en",
         start_url: `/`,
         background_color: `#303030`,

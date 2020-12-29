@@ -29,7 +29,7 @@ const StyledHeader = withStyles(theme => ({
       paddingRight: theme.spacing(0.5),
       "&>svg": {
         visibility: "hidden",
-        verticalAlign: "middle",
+        verticalAlign: "text-top",
       },
     },
   },

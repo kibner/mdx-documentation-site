@@ -44,7 +44,7 @@ const TableOfContents = props => {
               <PageNode key={pageNode.id} node={pageNode} />
             ))}
       </List>
-      <MdxDivider />
+      {hasTableOfContents ? <MdxDivider /> : <Fragment />}
     </Fragment>
   ) : (
     <Fragment />

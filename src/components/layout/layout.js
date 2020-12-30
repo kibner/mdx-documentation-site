@@ -4,6 +4,7 @@ import Footer from "./footer"
 import PropTypes from "prop-types"
 import Header from "./header"
 import Navigation from "./navigation/navigation"
+import MdxDivider from "../mdx/native-elements/mdx-divider"
 
 const drawerWidth = 240
 
@@ -49,6 +50,7 @@ const Layout = props => {
       <main className={classes.content}>
         <div className={classes.toolbar} />
         {children}
+        <MdxDivider variant={"fullWidth"} />
         <Footer />
       </main>
     </div>

@@ -11,7 +11,10 @@ import BuildNavigationTree from "../components/helpers/build-navigation-tree"
 import MdxDivider from "../components/mdx/native-elements/mdx-divider"
 import TableOfContents from "../components/table-of-contents/table-of-contents"
 import Breadcrumbs from "../components/breadcrumbs"
-import { GetBreadcrumbNodes, GetNodeById } from "../components/helpers/search-navigation-tree"
+import {
+  GetBreadcrumbNodes,
+  GetNodeById,
+} from "../components/helpers/search-navigation-tree"
 import { useAllMdxQuery } from "../static-queries/use-all-mdx-query"
 
 export default function PageTemplate({ data: { mdx } }) {

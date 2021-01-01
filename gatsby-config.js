@@ -10,21 +10,21 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `site-images`,
-        path: `${__dirname}/src/images/site`,
+        path: `${__dirname}/src/images`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `content-images`,
-        path: `${__dirname}/src/images/content`,
+        path: `${__dirname}/content/images`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `mdx`,
-        path: `${__dirname}/src/mdx-pages`,
+        name: `content-pages`,
+        path: `${__dirname}/content/pages`,
       },
     },
     `gatsby-transformer-sharp`,
@@ -51,7 +51,7 @@ module.exports = {
         background_color: `#303030`,
         theme_color: `#424242`,
         display: `minimal-ui`,
-        icon: `src/images/site/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-theme-material-ui`,

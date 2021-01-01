@@ -7,17 +7,17 @@
 
 ## How to Add Content
 
-Add content pages by creating MDX files in the `/src/mdx-pages` directory. `/src/mdx-pages/index.mdx` serves as the home
+Add content pages by creating MDX files in the `/content/pages` directory. `/content/pages/index.mdx` serves as the home
 page. Pages will automatically be added to the site's navigation.
 
 To create sub-pages (represented in navigation by collapsible lists and sub-lists), create a directory
-inside `/src/mdx-pages` with the same name as the parent page you want to create a sub-page for. The example below
+inside `/content/pages` with the same name as the parent page you want to create a sub-page for. The example below
 creates the page `foo.mdx` with the sub-page `bar.mdx`.
 
 ```text
 .
-└── src
-    └── mdx-pages
+└── content
+    └── pages
         ├── foo
         │   └── bar.mdx
         └── foo.mdx
@@ -48,7 +48,7 @@ with more granulated navigation than the navigation bar provides.
 
 ## Template/Layout
 
-The page template that is used for all content pages is found at `/src/templates/page.js`. This is also where the layout
+The page template that is used for all content pages is found at `/src/templates/content-page.js`. This is also where the layout
 is defined.
 
 ## Shortcodes

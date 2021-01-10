@@ -1,7 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
-import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Typography } from "@material-ui/core"
 import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
@@ -13,39 +11,25 @@ import TableOfContents from "../components/table-of-contents/table-of-contents"
 import Breadcrumbs from "../components/breadcrumbs"
 import {
   GetBreadcrumbNodes,
-  GetNodeById,
+  GetNodeBySlug,
 } from "../components/helpers/search-navigation-tree"
 import { useAllMdxQuery } from "../static-queries/use-all-mdx-query"
 
-export default function PageTemplate({ data: { mdx } }) {
+export default ({ children, pageContext, uri }) => {
   const mdxProviderComponents = { ...MdxCustomizedComponents, ...MdxShortcodes }
   const allMdx = useAllMdxQuery()
   const navigationTree = BuildNavigationTree(allMdx)
-  const currentNode = GetNodeById(navigationTree, mdx.id)
+  const currentNode = GetNodeBySlug(navigationTree, uri)
   const breadcrumbNodes = GetBreadcrumbNodes(navigationTree, currentNode)
 
   return (
     <Layout navigationTree={navigationTree} breadcrumbNodes={breadcrumbNodes}>
-      <SEO title={mdx.frontmatter.title} />
+      <SEO title={pageContext.frontmatter.title} />
       <Breadcrumbs breadcrumbNodes={breadcrumbNodes} />
-      <Typography variant={"h2"}>{mdx.frontmatter.title}</Typography>
+      <Typography variant={"h2"}>{pageContext.frontmatter.title}</Typography>
       <MdxDivider variant={"fullWidth"} />
       <TableOfContents currentNode={currentNode} />
-      <MDXProvider components={mdxProviderComponents}>
-        <MDXRenderer>{mdx.body}</MDXRenderer>
-      </MDXProvider>
+      <MDXProvider components={mdxProviderComponents}>{children}</MDXProvider>
     </Layout>
   )
 }
-
-export const pageQuery = graphql`
-  query($id: String) {
-    mdx(id: { eq: $id }) {
-      id
-      body
-      frontmatter {
-        title
-      }
-    }
-  }
-`

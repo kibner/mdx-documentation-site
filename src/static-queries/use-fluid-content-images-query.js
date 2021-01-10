@@ -6,7 +6,6 @@ export const useFluidContentImagesQuery = () => {
       query FluidContentImages {
         fluidContentImages: allFile(
           filter: { sourceInstanceName: { eq: "content-images" } }
-          sort: { fields: sourceInstanceName }
         ) {
           edges {
             node {

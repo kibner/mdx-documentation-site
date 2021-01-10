@@ -27,11 +27,20 @@ module.exports = {
         path: `${__dirname}/content/pages`,
       },
     },
+    {
+      resolve: "gatsby-plugin-page-creator",
+      options: {
+        path: `${__dirname}/content/pages`,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
+        defaultLayouts: {
+          default: require.resolve("./src/templates/content-page.js"),
+        },
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-autolink-headers`,

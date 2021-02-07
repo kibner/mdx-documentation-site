@@ -21,10 +21,6 @@ export function GetNodeById(navigationTree, nodeId) {
 }
 
 export function GetNodeBySlug(navigationTree, slug) {
-  if (slug.endsWith("/") === false) {
-    slug += "/"
-  }
-
   return GetNode(navigationTree, node => node.slug === slug)
 }
 

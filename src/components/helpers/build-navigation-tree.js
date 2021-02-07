@@ -5,7 +5,7 @@ const BuildNavigationTree = edges => {
   const level = { result }
 
   edges.forEach(edge => {
-    edge.node.slug.split("/").reduce((accumulator, currentValue) => {
+    edge.node.fields.slug.split("/").reduce((accumulator, currentValue) => {
       if (currentValue === "") {
         return accumulator
       }
@@ -20,7 +20,7 @@ const BuildNavigationTree = edges => {
           id: edge.node.id,
           title: edge.node.frontmatter.title,
           display_order: edge.node.frontmatter.display_order,
-          slug: "/" + edge.node.slug + "/",
+          slug: edge.node.fields.slug,
           table_of_contents: edge.node.tableOfContents,
         })
       }

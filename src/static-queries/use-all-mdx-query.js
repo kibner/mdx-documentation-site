@@ -4,7 +4,7 @@ export const useAllMdxQuery = () => {
   const { allMdx } = useStaticQuery(
     graphql`
       query AllMdx {
-        allMdx(sort: { fields: [slug] }) {
+        allMdx(sort: { fields: [fields___slug] }) {
           edges {
             node {
               id
@@ -12,7 +12,9 @@ export const useAllMdxQuery = () => {
                 title
                 display_order
               }
-              slug
+              fields {
+                slug
+              }
               tableOfContents
             }
           }

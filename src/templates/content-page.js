@@ -1,5 +1,6 @@
 import React from "react"
 import { MDXProvider } from "@mdx-js/react"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Typography } from "@material-ui/core"
 import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
@@ -11,15 +12,15 @@ import TableOfContents from "../components/table-of-contents/table-of-contents"
 import Breadcrumbs from "../components/breadcrumbs"
 import {
   GetBreadcrumbNodes,
-  GetNodeBySlug,
+  GetNodeById,
 } from "../components/helpers/search-navigation-tree"
 import { useAllMdxQuery } from "../static-queries/use-all-mdx-query"
 
-export default ({ children, pageContext, uri }) => {
+export default ({ pageContext }) => {
   const mdxProviderComponents = { ...MdxCustomizedComponents, ...MdxShortcodes }
   const allMdx = useAllMdxQuery()
   const navigationTree = BuildNavigationTree(allMdx)
-  const currentNode = GetNodeBySlug(navigationTree, uri)
+  const currentNode = GetNodeById(navigationTree, pageContext.id)
   const breadcrumbNodes = GetBreadcrumbNodes(navigationTree, currentNode)
 
   return (
@@ -29,7 +30,9 @@ export default ({ children, pageContext, uri }) => {
       <Typography variant={"h2"}>{pageContext.frontmatter.title}</Typography>
       <MdxDivider variant={"fullWidth"} />
       <TableOfContents currentNode={currentNode} />
-      <MDXProvider components={mdxProviderComponents}>{children}</MDXProvider>
+      <MDXProvider components={mdxProviderComponents}>
+        <MDXRenderer>{pageContext.body}</MDXRenderer>
+      </MDXProvider>
     </Layout>
   )
 }

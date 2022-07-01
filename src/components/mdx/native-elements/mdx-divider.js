@@ -5,8 +5,8 @@ import React from "react"
 const StyledDivider = withStyles(theme => ({
   root: {
     marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(2),
-  },
+    marginBottom: theme.spacing(2)
+  }
 }))(Divider)
 
 const MdxDivider = props => (

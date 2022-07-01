@@ -16,14 +16,14 @@ const StyledUnorderedList = withStyles(theme => ({
             "&>li.MuiListItem-root:last-child": {
               paddingBottom: 0,
               "&>div.MuiListItemText-root": {
-                marginBottom: 0,
-              },
-            },
-          },
-        },
-      },
-    },
-  },
+                marginBottom: 0
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }))(List)
 
 const MdxUnorderedList = props => <StyledUnorderedList dense {...props} />

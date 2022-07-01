@@ -1,5 +1,5 @@
 import React from "react"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import { Typography } from "@material-ui/core"
 import Layout from "../components/layout/layout"
 import BuildNavigationTree from "../components/helpers/build-navigation-tree"
@@ -12,7 +12,7 @@ const NotFoundPage = () => {
 
   return (
     <Layout navigationTree={navigationTree}>
-      <SEO title="404: Not found" />
+      <Seo title="404: Not found" />
       <Typography variant={"h2"}>404: Not Found</Typography>
       <MdxDivider variant={"fullWidth"} />
       <Typography paragraph>

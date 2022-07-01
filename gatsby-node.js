@@ -18,7 +18,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       node,
       name: "slug",
-      value: slug,
+      value: slug
     })
   }
 }
@@ -48,7 +48,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   `)
 
   if (result.errors) {
-    reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query')
+    reporter.panicOnBuild("🚨  ERROR: Loading \"createPages\" query")
   }
 
   result.data.allMdx.edges.forEach(({ node }) => {
@@ -60,8 +60,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       context: {
         id: node.id,
         frontmatter: node.frontmatter,
-        body: node.body,
-      },
+        body: node.body
+      }
     })
   })
 }

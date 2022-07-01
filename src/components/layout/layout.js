@@ -10,7 +10,7 @@ const drawerWidth = 240
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: "flex",
+    display: "flex"
   },
   // necessary for content to be below app bar
   toolbar: theme.mixins.toolbar,
@@ -19,8 +19,8 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(3),
     marginLeft: "auto",
     marginRight: "auto",
-    maxWidth: 960,
-  },
+    maxWidth: 960
+  }
 }))
 
 const Layout = props => {
@@ -58,7 +58,7 @@ const Layout = props => {
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 }
 
 export default Layout

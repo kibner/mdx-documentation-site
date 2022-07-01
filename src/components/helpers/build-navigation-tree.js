@@ -21,7 +21,7 @@ const BuildNavigationTree = edges => {
           title: edge.node.frontmatter.title,
           display_order: edge.node.frontmatter.display_order,
           slug: edge.node.fields.slug,
-          table_of_contents: edge.node.tableOfContents,
+          table_of_contents: edge.node.tableOfContents
         })
       }
 

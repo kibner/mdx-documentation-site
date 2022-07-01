@@ -12,19 +12,19 @@ const useStyles = makeStyles(theme => ({
   appBar: props => ({
     [theme.breakpoints.up("sm")]: {
       width: `calc(100% - ${props.drawerWidth}px)`,
-      marginLeft: props.drawerWidth,
+      marginLeft: props.drawerWidth
     },
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.background.paper
   }),
   menuButton: {
     marginRight: theme.spacing(2),
     [theme.breakpoints.up("sm")]: {
-      display: "none",
-    },
+      display: "none"
+    }
   },
   title: {
-    color: theme.palette.text.primary,
-  },
+    color: theme.palette.text.primary
+  }
 }))
 
 const Header = props => {

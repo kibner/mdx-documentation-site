@@ -18,14 +18,14 @@ const StyledOrderedList = withStyles(theme => ({
             "&>li.MuiListItem-root:last-child": {
               paddingBottom: 0,
               "&>div.MuiListItemText-root": {
-                marginBottom: 0,
-              },
-            },
-          },
-        },
-      },
-    },
-  },
+                marginBottom: 0
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }))(List)
 
 const MdxOrderedList = props => (

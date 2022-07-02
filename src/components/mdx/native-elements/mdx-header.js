@@ -1,5 +1,5 @@
-import { withStyles } from "@material-ui/core/styles"
-import { Typography } from "@material-ui/core"
+import withStyles from '@mui/styles/withStyles';
+import { Typography } from "@mui/material"
 import React from "react"
 
 const StyledHeader = withStyles(theme => ({

@@ -1,8 +1,10 @@
 import React, { Fragment } from "react"
-import List from "@material-ui/core/List"
-import Collapse from "@material-ui/core/Collapse"
+import List from "@mui/material/List"
+import Collapse from "@mui/material/Collapse"
 import NavigationListItem from "./navigation-list-item"
-import { makeStyles } from "@material-ui/core/styles"
+import { ThemeProvider, StyledEngineProvider, useTheme } from "@mui/material/styles";
+
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles(theme => ({
   nested: props => ({
@@ -26,6 +28,7 @@ const initialOpenState = (breadcrumbNodes, node) => {
 const NavigationNode = props => {
   const { node, breadcrumbNodes } = props
   const spacing = props.spacing ? props.spacing + 2 : 2
+  const theme = useTheme()
   const classes = useStyles({ spacing: spacing })
   const hasChildren = node?.children?.length > 0
 
@@ -39,30 +42,32 @@ const NavigationNode = props => {
   }
 
   return (
-    <Fragment>
-      <NavigationListItem
-        className={classes.page}
-        node={node}
-        expansionState={hasChildren ? open : null}
-        handleExpansionClick={hasChildren ? handleClick : null}
-      />
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        {hasChildren ? (
-          <List component="div" disablePadding className={classes.nested}>
-            {node.children.map(child => (
-              <NavigationNode
-                key={child.id}
-                node={child}
-                breadcrumbNodes={breadcrumbNodes}
-              />
-            ))}
-          </List>
-        ) : (
-          <Fragment />
-        )}
-      </Collapse>
-    </Fragment>
-  )
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <NavigationListItem
+          className={classes.page}
+          node={node}
+          expansionState={hasChildren ? open : null}
+          handleExpansionClick={hasChildren ? handleClick : null}
+        />
+        <Collapse in={open} timeout="auto" unmountOnExit>
+          {hasChildren ? (
+            <List component="div" disablePadding className={classes.nested}>
+              {node.children.map(child => (
+                <NavigationNode
+                  key={child.id}
+                  node={child}
+                  breadcrumbNodes={breadcrumbNodes}
+                />
+              ))}
+            </List>
+          ) : (
+            <Fragment />
+          )}
+        </Collapse>
+      </ThemeProvider>
+    </StyledEngineProvider>
+  );
 }
 
 export default NavigationNode

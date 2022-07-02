@@ -1,6 +1,6 @@
-import { createTheme, responsiveFontSizes } from "@material-ui/core"
+import { createTheme, responsiveFontSizes, adaptV4Theme } from "@mui/material";
 
-let theme = createTheme({
+let theme = createTheme(adaptV4Theme({
   breakpoints: {
     keys: ["xs", "sm", "md", "lg", "xl"],
     values: { xs: 0, sm: 853, md: 960, lg: 1280, xl: 1920 }
@@ -255,7 +255,7 @@ let theme = createTheme({
     snackbar: 1400,
     tooltip: 1500
   }
-})
+}))
 
 theme = responsiveFontSizes(theme)
 

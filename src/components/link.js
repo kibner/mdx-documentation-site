@@ -1,7 +1,7 @@
 import React from "react"
 import { Link as GatsbyLink } from "gatsby-theme-material-ui"
-import Tooltip from "@material-ui/core/Tooltip"
-import MuiLink from "@material-ui/core/Link"
+import Tooltip from "@mui/material/Tooltip"
+import MuiLink from "@mui/material/Link"
 
 // Since DOM elements <a> cannot receive activeClassName
 // and partiallyActive, destructure the prop here and
@@ -46,7 +46,7 @@ const Link = ({
       rel={other.rel ?? "noopener noreferrer"}
       className={`${className} ${externalClassName}`}
       {...other}
-    >
+      underline="hover">
       {children}
     </MuiLink>
   )

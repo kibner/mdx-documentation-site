@@ -1,7 +1,7 @@
 import React from "react"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import { Typography } from "@material-ui/core"
+import { Typography } from "@mui/material"
 import Layout from "../components/layout/layout"
 import Seo from "../components/seo"
 import MdxCustomizedComponents from "./configs/mdx-customized-components"

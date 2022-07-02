@@ -1,6 +1,6 @@
 import React from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
-import { Typography } from "@material-ui/core"
+import { Typography } from "@mui/material"
 import { useFluidContentImagesQuery } from "../../../../static-queries/use-fluid-content-images-query"
 
 const FluidContentImage = props => {

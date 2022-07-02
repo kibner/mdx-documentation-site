@@ -1,9 +1,9 @@
 import React, { Fragment } from "react"
-import ListItem from "@material-ui/core/ListItem"
-import ListItemText from "@material-ui/core/ListItemText"
+import ListItem from "@mui/material/ListItem"
+import ListItemText from "@mui/material/ListItemText"
 import Link from "./link"
-import { ExpandLess, ExpandMore } from "@material-ui/icons"
-import ListItemIcon from "@material-ui/core/ListItemIcon"
+import { ExpandLess, ExpandMore } from "@mui/icons-material"
+import ListItemIcon from "@mui/material/ListItemIcon"
 
 const ListItemLink = props => {
   const {

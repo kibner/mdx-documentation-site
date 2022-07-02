@@ -1,11 +1,12 @@
 import React from "react"
-import Toolbar from "@material-ui/core/Toolbar"
-import IconButton from "@material-ui/core/IconButton"
-import MenuIcon from "@material-ui/icons/Menu"
-import Typography from "@material-ui/core/Typography"
+import Toolbar from "@mui/material/Toolbar"
+import IconButton from "@mui/material/IconButton"
+import MenuIcon from "@mui/icons-material/Menu"
+import Typography from "@mui/material/Typography"
 import Link from "../link"
-import AppBar from "@material-ui/core/AppBar"
-import { makeStyles } from "@material-ui/core/styles"
+import AppBar from "@mui/material/AppBar"
+import { ThemeProvider, StyledEngineProvider, useTheme } from "@mui/material/styles";
+import makeStyles from '@mui/styles/makeStyles';
 import { useSiteMetadataHeaderQuery } from "../../static-queries/use-site-metadata-header-query"
 
 const useStyles = makeStyles(theme => ({
@@ -30,28 +31,33 @@ const useStyles = makeStyles(theme => ({
 const Header = props => {
   const { position, drawerWidth, handleDrawerToggle } = props
   const siteMetadata = useSiteMetadataHeaderQuery()
+  const theme = useTheme()
   const classes = useStyles({ drawerWidth: drawerWidth })
 
   return (
-    <AppBar position={position} className={classes.appBar}>
-      <Toolbar>
-        <IconButton
-          color="inherit"
-          aria-label="open drawer"
-          edge="start"
-          onClick={handleDrawerToggle}
-          className={classes.menuButton}
-        >
-          <MenuIcon />
-        </IconButton>
-        <Typography variant={"h6"}>
-          <Link to={"/"} className={classes.title}>
-            {siteMetadata?.title || `Title`}
-          </Link>
-        </Typography>
-      </Toolbar>
-    </AppBar>
-  )
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <AppBar position={position} className={classes.appBar}>
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              className={classes.menuButton}
+              size="large">
+              <MenuIcon />
+            </IconButton>
+            <Typography variant={"h6"}>
+              <Link to={"/"} className={classes.title}>
+                {siteMetadata?.title || `Title`}
+              </Link>
+            </Typography>
+          </Toolbar>
+        </AppBar>
+      </ThemeProvider>
+    </StyledEngineProvider>
+  );
 }
 
 export default Header

@@ -1,5 +1,5 @@
-import { withStyles } from "@material-ui/core/styles"
-import List from "@material-ui/core/List"
+import withStyles from '@mui/styles/withStyles';
+import List from "@mui/material/List"
 import React from "react"
 
 const StyledOrderedList = withStyles(theme => ({

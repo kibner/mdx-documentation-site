@@ -1,8 +1,9 @@
 import React, { Fragment } from "react"
 import Entry from "./entry"
-import { makeStyles } from "@material-ui/core/styles"
-import List from "@material-ui/core/List"
-import Collapse from "@material-ui/core/Collapse"
+import { ThemeProvider, StyledEngineProvider, useTheme } from "@mui/material/styles";
+import makeStyles from '@mui/styles/makeStyles';
+import List from "@mui/material/List"
+import Collapse from "@mui/material/Collapse"
 import TableOfContentsNode from "./table-of-contents-node"
 
 const useStyles = makeStyles(theme => ({
@@ -17,6 +18,7 @@ const useStyles = makeStyles(theme => ({
 const PageNode = props => {
   const { node } = props
   const spacing = props.spacing ? props.spacing + 2 : 2
+  const theme = useTheme()
   const classes = useStyles({ spacing: spacing })
   const [open, setOpen] = React.useState(false)
 
@@ -30,39 +32,41 @@ const PageNode = props => {
   }
 
   return (
-    <Fragment>
-      <Entry
-        className={classes.page}
-        entry={{ url: node.slug, title: node.title }}
-        expansionState={hasDescendents ? open : null}
-        handleExpansionClick={hasDescendents ? handleClick : null}
-      />
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        {hasTableOfContents ? (
-          <List component="div" disablePadding dense className={classes.nested}>
-            {node.table_of_contents.items.map(tableOfContentsNode => (
-              <TableOfContentsNode
-                key={tableOfContentsNode.title}
-                node={tableOfContentsNode}
-                slug={node.slug}
-              />
-            ))}
-          </List>
-        ) : (
-          <Fragment />
-        )}
-        {hasChildren ? (
-          <List component="div" disablePadding dense className={classes.nested}>
-            {node.children.map(child => (
-              <PageNode key={child.id} node={child} />
-            ))}
-          </List>
-        ) : (
-          <Fragment />
-        )}
-      </Collapse>
-    </Fragment>
-  )
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <Entry
+          className={classes.page}
+          entry={{ url: node.slug, title: node.title }}
+          expansionState={hasDescendents ? open : null}
+          handleExpansionClick={hasDescendents ? handleClick : null}
+        />
+        <Collapse in={open} timeout="auto" unmountOnExit>
+          {hasTableOfContents ? (
+            <List component="div" disablePadding dense className={classes.nested}>
+              {node.table_of_contents.items.map(tableOfContentsNode => (
+                <TableOfContentsNode
+                  key={tableOfContentsNode.title}
+                  node={tableOfContentsNode}
+                  slug={node.slug}
+                />
+              ))}
+            </List>
+          ) : (
+            <Fragment />
+          )}
+          {hasChildren ? (
+            <List component="div" disablePadding dense className={classes.nested}>
+              {node.children.map(child => (
+                <PageNode key={child.id} node={child} />
+              ))}
+            </List>
+          ) : (
+            <Fragment />
+          )}
+        </Collapse>
+      </ThemeProvider>
+    </StyledEngineProvider>
+  );
 }
 
 export default PageNode

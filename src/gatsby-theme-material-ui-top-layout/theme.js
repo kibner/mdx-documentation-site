@@ -1,7 +1,7 @@
-import { adaptV4Theme, createTheme, responsiveFontSizes } from "@mui/material"
+import { createTheme, responsiveFontSizes } from "@mui/material"
 import { green, lightBlue, orange } from "@mui/material/colors"
 
-let theme = createTheme(adaptV4Theme({
+let theme = createTheme({
   breakpoints: {
     keys: ["xs", "sm", "md", "lg", "xl"],
     values: { xs: 0, sm: 600, md: 900, lg: 1200, xl: 1536 }
@@ -258,7 +258,7 @@ let theme = createTheme(adaptV4Theme({
     snackbar: 1400,
     tooltip: 1500
   }
-}))
+})
 
 theme = responsiveFontSizes(theme)
 

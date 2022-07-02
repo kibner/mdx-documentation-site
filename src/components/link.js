@@ -46,7 +46,7 @@ const Link = ({
       rel={other.rel ?? "noopener noreferrer"}
       className={`${className} ${externalClassName}`}
       {...other}
-    >
+      underline="hover">
       {children}
     </MuiLink>
   )

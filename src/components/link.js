@@ -35,6 +35,7 @@ const Link = ({
       activeClassName={activeClassName}
       partiallyActive={partiallyActive}
       className={`${className} ${internalClassName}`}
+      sx={{ textDecorationColor: "inherit" }}
       {...other}
     >
       {children}
@@ -45,6 +46,7 @@ const Link = ({
       target={other.target ?? "_blank"}
       rel={other.rel ?? "noopener noreferrer"}
       className={`${className} ${externalClassName}`}
+      sx={{ textDecorationColor: "inherit" }}
       {...other}>
       {children}
     </MuiLink>

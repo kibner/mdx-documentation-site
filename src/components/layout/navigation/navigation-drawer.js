@@ -1,9 +1,9 @@
-import React from "react"
+import React, { Fragment } from "react"
 import List from "@material-ui/core/List"
 import ListItemLink from "../../list-item-link"
 import Divider from "@material-ui/core/Divider"
 import ListSubheader from "@material-ui/core/ListSubheader"
-import { makeStyles, ThemeProvider, useTheme } from "@material-ui/core/styles"
+import { makeStyles } from "@material-ui/core/styles"
 import HomeIcon from "@material-ui/icons/Home"
 import NavigationNode from "./navigation-node"
 
@@ -21,11 +21,10 @@ const useStyles = makeStyles(theme => ({
 
 const NavigationDrawer = props => {
   const { navigationTree, breadcrumbNodes } = props
-  const theme = useTheme()
   const classes = useStyles()
 
   return (
-    <ThemeProvider theme={theme}>
+    <Fragment>
       <List>
         <ListItemLink
           primary={"Home"}
@@ -53,7 +52,7 @@ const NavigationDrawer = props => {
           />
         ))}
       </List>
-    </ThemeProvider>
+    </Fragment>
   )
 }
 

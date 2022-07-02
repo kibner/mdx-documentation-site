@@ -1,5 +1,5 @@
 import React, { Fragment } from "react"
-import { makeStyles, ThemeProvider, useTheme } from "@material-ui/core/styles"
+import { makeStyles } from "@material-ui/core/styles"
 import Entry from "./entry"
 import List from "@material-ui/core/List"
 import Collapse from "@material-ui/core/Collapse"
@@ -16,7 +16,6 @@ const useStyles = makeStyles(theme => ({
 const TableOfContentsNode = props => {
   const { node, slug } = props
   const spacing = props.spacing ? props.spacing + 2 : 2
-  const theme = useTheme()
   const classes = useStyles({ spacing: spacing })
   const [open, setOpen] = React.useState(false)
   const hasChildren = node?.items?.length > 0
@@ -27,7 +26,7 @@ const TableOfContentsNode = props => {
   }
 
   return (
-    <ThemeProvider theme={theme}>
+    <Fragment>
       <Entry
         className={classes.heading}
         entry={{ url: slug + node.url, title: node.title }}
@@ -49,7 +48,7 @@ const TableOfContentsNode = props => {
           <Fragment />
         )}
       </Collapse>
-    </ThemeProvider>
+    </Fragment>
   )
 }
 

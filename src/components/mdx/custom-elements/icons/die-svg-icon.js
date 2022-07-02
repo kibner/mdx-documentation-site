@@ -1,6 +1,6 @@
 import React from "react"
-import { withStyles } from "@material-ui/core/styles"
-import SvgIcon from "@material-ui/core/SvgIcon"
+import withStyles from '@mui/styles/withStyles';
+import SvgIcon from "@mui/material/SvgIcon"
 
 const StyledSvgIcon = withStyles(theme => ({
   root: {

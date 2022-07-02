@@ -1,9 +1,10 @@
 import React, { Fragment } from "react"
-import { default as MaterialBreadcrumbs } from "@material-ui/core/Breadcrumbs"
+import { default as MaterialBreadcrumbs } from "@mui/material/Breadcrumbs"
 import Link from "./link"
-import Typography from "@material-ui/core/Typography"
-import { makeStyles, ThemeProvider, useTheme } from "@material-ui/core/styles"
-import HomeIcon from "@material-ui/icons/Home"
+import Typography from "@mui/material/Typography"
+import { ThemeProvider, StyledEngineProvider, useTheme } from "@mui/material/styles";
+import makeStyles from '@mui/styles/makeStyles';
+import HomeIcon from "@mui/icons-material/Home"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -22,10 +23,10 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(0.5),
     height: `calc(${theme.typography.body1.fontSize} * ${
       theme.typography.body1.lineHeight
-    } - ${theme.spacing(0.5)}px)`,
+    } - ${theme.spacing(0.5)})`,
     width: `calc(${theme.typography.body1.fontSize} * ${
       theme.typography.body1.lineHeight
-    } - ${theme.spacing(0.5)}px)`
+    } - ${theme.spacing(0.5)})`
   }
 }))
 
@@ -36,36 +37,38 @@ const Breadcrumbs = props => {
 
   if (breadcrumbNodes) {
     return (
-      <ThemeProvider theme={theme}>
-        <MaterialBreadcrumbs aria-label={"breadcrumb"} className={classes.root}>
-          <Link to="/" className={`${classes.breadcrumb} ${classes.link}`}>
-            <HomeIcon className={classes.icon} />
-            Home
-          </Link>
-          {breadcrumbNodes.map((node, index, array) => {
-            if (index < array.length - 1) {
+      <StyledEngineProvider injectFirst>
+        <ThemeProvider theme={theme}>
+          <MaterialBreadcrumbs aria-label={"breadcrumb"} className={classes.root}>
+            <Link to="/" className={`${classes.breadcrumb} ${classes.link}`}>
+              <HomeIcon className={classes.icon} />
+              Home
+            </Link>
+            {breadcrumbNodes.map((node, index, array) => {
+              if (index < array.length - 1) {
+                return (
+                  <Link
+                    key={node.id}
+                    to={node.slug}
+                    className={`${classes.breadcrumb} ${classes.link}`}
+                  >
+                    {node.title}
+                  </Link>
+                )
+              }
               return (
-                <Link
+                <Typography
                   key={node.id}
-                  to={node.slug}
-                  className={`${classes.breadcrumb} ${classes.link}`}
+                  className={`${classes.breadcrumb} ${classes.currentPage}`}
                 >
                   {node.title}
-                </Link>
+                </Typography>
               )
-            }
-            return (
-              <Typography
-                key={node.id}
-                className={`${classes.breadcrumb} ${classes.currentPage}`}
-              >
-                {node.title}
-              </Typography>
-            )
-          })}
-        </MaterialBreadcrumbs>
-      </ThemeProvider>
-    )
+            })}
+          </MaterialBreadcrumbs>
+        </ThemeProvider>
+      </StyledEngineProvider>
+    );
   } else {
     return <Fragment />
   }

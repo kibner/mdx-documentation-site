@@ -1,8 +1,8 @@
-import { withStyles } from "@material-ui/core/styles"
-import TableContainer from "@material-ui/core/TableContainer"
-import Paper from "@material-ui/core/Paper"
+import withStyles from '@mui/styles/withStyles';
+import TableContainer from "@mui/material/TableContainer"
+import Paper from "@mui/material/Paper"
 import React from "react"
-import Table from "@material-ui/core/Table"
+import Table from "@mui/material/Table"
 
 const StyledTableContainer = withStyles(theme => ({
   root: {

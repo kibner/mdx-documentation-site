@@ -1,8 +1,10 @@
 import React, { Fragment } from "react"
-import List from "@material-ui/core/List"
-import Collapse from "@material-ui/core/Collapse"
+import List from "@mui/material/List"
+import Collapse from "@mui/material/Collapse"
 import NavigationListItem from "./navigation-list-item"
-import { makeStyles, ThemeProvider, useTheme } from "@material-ui/core/styles"
+import { ThemeProvider, StyledEngineProvider, useTheme } from "@mui/material/styles";
+
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles(theme => ({
   nested: props => ({
@@ -40,30 +42,32 @@ const NavigationNode = props => {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <NavigationListItem
-        className={classes.page}
-        node={node}
-        expansionState={hasChildren ? open : null}
-        handleExpansionClick={hasChildren ? handleClick : null}
-      />
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        {hasChildren ? (
-          <List component="div" disablePadding className={classes.nested}>
-            {node.children.map(child => (
-              <NavigationNode
-                key={child.id}
-                node={child}
-                breadcrumbNodes={breadcrumbNodes}
-              />
-            ))}
-          </List>
-        ) : (
-          <Fragment />
-        )}
-      </Collapse>
-    </ThemeProvider>
-  )
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <NavigationListItem
+          className={classes.page}
+          node={node}
+          expansionState={hasChildren ? open : null}
+          handleExpansionClick={hasChildren ? handleClick : null}
+        />
+        <Collapse in={open} timeout="auto" unmountOnExit>
+          {hasChildren ? (
+            <List component="div" disablePadding className={classes.nested}>
+              {node.children.map(child => (
+                <NavigationNode
+                  key={child.id}
+                  node={child}
+                  breadcrumbNodes={breadcrumbNodes}
+                />
+              ))}
+            </List>
+          ) : (
+            <Fragment />
+          )}
+        </Collapse>
+      </ThemeProvider>
+    </StyledEngineProvider>
+  );
 }
 
 export default NavigationNode

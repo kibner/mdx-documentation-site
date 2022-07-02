@@ -1,4 +1,4 @@
-import ListItem from "@material-ui/core/ListItem"
+import ListItem from "@mui/material/ListItem"
 import MdxListItemText from "./mdx-list-item-text"
 import React from "react"
 

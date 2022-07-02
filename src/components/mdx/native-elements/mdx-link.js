@@ -1,6 +1,8 @@
 import React from "react"
 import Link from "../../link"
-import { makeStyles, ThemeProvider, useTheme } from "@material-ui/core/styles"
+import { ThemeProvider, StyledEngineProvider, useTheme } from "@mui/material/styles";
+
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles(theme => ({
   internalLink: {
@@ -17,15 +19,17 @@ const MdxLink = props => {
   const classes = useStyles()
 
   return (
-    <ThemeProvider theme={theme}>
-      <Link
-        to={href}
-        internalClassName={classes.internalLink}
-        externalClassName={classes.externalLink}
-        {...props}
-      />
-    </ThemeProvider>
-  )
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <Link
+          to={href}
+          internalClassName={classes.internalLink}
+          externalClassName={classes.externalLink}
+          {...props}
+        />
+      </ThemeProvider>
+    </StyledEngineProvider>
+  );
 }
 
 export default MdxLink

@@ -1,6 +1,6 @@
 import React from "react"
 import Seo from "../components/seo"
-import { Typography } from "@material-ui/core"
+import { Typography } from "@mui/material"
 import Layout from "../components/layout/layout"
 import BuildNavigationTree from "../components/helpers/build-navigation-tree"
 import MdxDivider from "../components/mdx/native-elements/mdx-divider"

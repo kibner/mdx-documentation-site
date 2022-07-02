@@ -1,5 +1,6 @@
 import React from "react"
-import { makeStyles, ThemeProvider, useTheme } from "@material-ui/core/styles"
+import { ThemeProvider, StyledEngineProvider, useTheme } from "@mui/material/styles";
+import makeStyles from '@mui/styles/makeStyles';
 import Footer from "./footer"
 import PropTypes from "prop-types"
 import Header from "./header"
@@ -34,30 +35,32 @@ const Layout = props => {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <div className={classes.root}>
-        <Header
-          position={"fixed"}
-          drawerWidth={drawerWidth}
-          handleDrawerToggle={handleDrawerToggle}
-        />
-        <Navigation
-          className={classes.drawer}
-          drawerWidth={drawerWidth}
-          handleDrawerToggle={handleDrawerToggle}
-          mobileOpen={mobileOpen}
-          navigationTree={navigationTree}
-          breadcrumbNodes={breadcrumbNodes}
-        />
-        <main className={classes.content}>
-          <div className={classes.toolbar} />
-          {children}
-          <MdxDivider variant={"fullWidth"} />
-          <Footer />
-        </main>
-      </div>
-    </ThemeProvider>
-  )
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <div className={classes.root}>
+          <Header
+            position={"fixed"}
+            drawerWidth={drawerWidth}
+            handleDrawerToggle={handleDrawerToggle}
+          />
+          <Navigation
+            className={classes.drawer}
+            drawerWidth={drawerWidth}
+            handleDrawerToggle={handleDrawerToggle}
+            mobileOpen={mobileOpen}
+            navigationTree={navigationTree}
+            breadcrumbNodes={breadcrumbNodes}
+          />
+          <main className={classes.content}>
+            <div className={classes.toolbar} />
+            {children}
+            <MdxDivider variant={"fullWidth"} />
+            <Footer />
+          </main>
+        </div>
+      </ThemeProvider>
+    </StyledEngineProvider>
+  );
 }
 
 Layout.propTypes = {

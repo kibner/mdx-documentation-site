@@ -1,6 +1,6 @@
-import React, { Fragment } from "react"
+import React from "react"
 import ListItemLink from "../../list-item-link"
-import { makeStyles } from "@material-ui/core/styles"
+import { makeStyles, ThemeProvider, useTheme } from "@material-ui/core/styles"
 
 const useStyles = makeStyles(theme => ({
   activeLink: {
@@ -9,11 +9,12 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const NavigationListItem = props => {
+  const theme = useTheme()
   const classes = useStyles()
   const { node, className, expansionState, handleExpansionClick } = props
 
   return (
-    <Fragment>
+    <ThemeProvider theme={theme}>
       <ListItemLink
         className={className}
         activeClassName={classes.activeLink}
@@ -22,7 +23,7 @@ const NavigationListItem = props => {
         expansionState={expansionState}
         handleExpansionClick={handleExpansionClick}
       />
-    </Fragment>
+    </ThemeProvider>
   )
 }
 

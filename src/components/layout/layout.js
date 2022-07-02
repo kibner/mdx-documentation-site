@@ -1,5 +1,5 @@
 import React from "react"
-import { makeStyles } from "@material-ui/core/styles"
+import { makeStyles, ThemeProvider, useTheme } from "@material-ui/core/styles"
 import Footer from "./footer"
 import PropTypes from "prop-types"
 import Header from "./header"
@@ -24,6 +24,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const Layout = props => {
+  const theme = useTheme()
   const classes = useStyles()
   const { navigationTree, breadcrumbNodes, children } = props
   const [mobileOpen, setMobileOpen] = React.useState(false)
@@ -33,27 +34,29 @@ const Layout = props => {
   }
 
   return (
-    <div className={classes.root}>
-      <Header
-        position={"fixed"}
-        drawerWidth={drawerWidth}
-        handleDrawerToggle={handleDrawerToggle}
-      />
-      <Navigation
-        className={classes.drawer}
-        drawerWidth={drawerWidth}
-        handleDrawerToggle={handleDrawerToggle}
-        mobileOpen={mobileOpen}
-        navigationTree={navigationTree}
-        breadcrumbNodes={breadcrumbNodes}
-      />
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
-        {children}
-        <MdxDivider variant={"fullWidth"} />
-        <Footer />
-      </main>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className={classes.root}>
+        <Header
+          position={"fixed"}
+          drawerWidth={drawerWidth}
+          handleDrawerToggle={handleDrawerToggle}
+        />
+        <Navigation
+          className={classes.drawer}
+          drawerWidth={drawerWidth}
+          handleDrawerToggle={handleDrawerToggle}
+          mobileOpen={mobileOpen}
+          navigationTree={navigationTree}
+          breadcrumbNodes={breadcrumbNodes}
+        />
+        <main className={classes.content}>
+          <div className={classes.toolbar} />
+          {children}
+          <MdxDivider variant={"fullWidth"} />
+          <Footer />
+        </main>
+      </div>
+    </ThemeProvider>
   )
 }
 

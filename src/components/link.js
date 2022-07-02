@@ -45,8 +45,7 @@ const Link = ({
       target={other.target ?? "_blank"}
       rel={other.rel ?? "noopener noreferrer"}
       className={`${className} ${externalClassName}`}
-      {...other}
-      underline="hover">
+      {...other}>
       {children}
     </MuiLink>
   )

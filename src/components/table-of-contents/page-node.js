@@ -1,8 +1,8 @@
 import React, { Fragment } from "react"
 import Entry from "./entry"
-import { makeStyles } from "@material-ui/core/styles"
-import List from "@material-ui/core/List"
-import Collapse from "@material-ui/core/Collapse"
+import makeStyles from '@mui/styles/makeStyles';
+import List from "@mui/material/List"
+import Collapse from "@mui/material/Collapse"
 import TableOfContentsNode from "./table-of-contents-node"
 
 const useStyles = makeStyles(theme => ({

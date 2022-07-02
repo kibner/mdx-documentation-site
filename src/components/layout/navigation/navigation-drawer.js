@@ -1,10 +1,10 @@
 import React, { Fragment } from "react"
-import List from "@material-ui/core/List"
+import List from "@mui/material/List"
 import ListItemLink from "../../list-item-link"
-import Divider from "@material-ui/core/Divider"
-import ListSubheader from "@material-ui/core/ListSubheader"
-import { makeStyles } from "@material-ui/core/styles"
-import HomeIcon from "@material-ui/icons/Home"
+import Divider from "@mui/material/Divider"
+import ListSubheader from "@mui/material/ListSubheader"
+import makeStyles from '@mui/styles/makeStyles';
+import HomeIcon from "@mui/icons-material/Home"
 import NavigationNode from "./navigation-node"
 
 const useStyles = makeStyles(theme => ({

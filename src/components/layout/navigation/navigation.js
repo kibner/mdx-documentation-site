@@ -1,8 +1,10 @@
 import React from "react"
-import Hidden from "@material-ui/core/Hidden"
-import Drawer from "@material-ui/core/Drawer"
+import Hidden from "@mui/material/Hidden"
+import Drawer from "@mui/material/Drawer"
 import NavigationDrawer from "./navigation-drawer"
-import { makeStyles, useTheme } from "@material-ui/core/styles"
+import { useTheme } from "@mui/material/styles";
+
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles(theme => ({
   drawer: props => ({
@@ -56,7 +58,7 @@ const Navigation = props => {
           />
         </Drawer>
       </Hidden>
-      <Hidden xsDown implementation="css">
+      <Hidden smDown implementation="css">
         <Drawer
           classes={{
             paper: classes.drawerPaper
@@ -71,7 +73,7 @@ const Navigation = props => {
         </Drawer>
       </Hidden>
     </nav>
-  )
+  );
 }
 
 export default Navigation

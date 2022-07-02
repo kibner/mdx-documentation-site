@@ -1,6 +1,6 @@
 import React, { Fragment } from "react"
 import ListItemLink from "../../list-item-link"
-import { makeStyles } from "@material-ui/core/styles"
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles(theme => ({
   activeLink: {

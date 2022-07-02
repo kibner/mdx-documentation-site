@@ -1,7 +1,7 @@
 import React from "react"
-import { Typography } from "@material-ui/core"
+import { Typography } from "@mui/material"
 import Link from "../link"
-import { makeStyles } from "@material-ui/core/styles"
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles(theme => ({
   footer: {

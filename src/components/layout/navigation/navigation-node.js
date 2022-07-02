@@ -1,8 +1,8 @@
 import React, { Fragment } from "react"
-import List from "@material-ui/core/List"
-import Collapse from "@material-ui/core/Collapse"
+import List from "@mui/material/List"
+import Collapse from "@mui/material/Collapse"
 import NavigationListItem from "./navigation-list-item"
-import { makeStyles } from "@material-ui/core/styles"
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles(theme => ({
   nested: props => ({

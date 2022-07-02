@@ -1,4 +1,4 @@
-import ListItemText from "@material-ui/core/ListItemText"
+import ListItemText from "@mui/material/ListItemText"
 import React from "react"
 
 const MdxListItemText = props => <ListItemText primary={props.children} />

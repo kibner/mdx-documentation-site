@@ -1,7 +1,7 @@
 import React, { Fragment } from "react"
-import List from "@material-ui/core/List"
-import ListSubheader from "@material-ui/core/ListSubheader"
-import { makeStyles } from "@material-ui/core/styles"
+import List from "@mui/material/List"
+import ListSubheader from "@mui/material/ListSubheader"
+import makeStyles from '@mui/styles/makeStyles';
 import MdxDivider from "../mdx/native-elements/mdx-divider"
 import PageNode from "./page-node"
 import TableOfContentsNode from "./table-of-contents-node"

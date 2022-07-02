@@ -2,7 +2,7 @@ import React, { Fragment } from "react"
 import List from "@material-ui/core/List"
 import Collapse from "@material-ui/core/Collapse"
 import NavigationListItem from "./navigation-list-item"
-import { makeStyles } from "@material-ui/core/styles"
+import { makeStyles, ThemeProvider, useTheme } from "@material-ui/core/styles"
 
 const useStyles = makeStyles(theme => ({
   nested: props => ({
@@ -26,6 +26,7 @@ const initialOpenState = (breadcrumbNodes, node) => {
 const NavigationNode = props => {
   const { node, breadcrumbNodes } = props
   const spacing = props.spacing ? props.spacing + 2 : 2
+  const theme = useTheme()
   const classes = useStyles({ spacing: spacing })
   const hasChildren = node?.children?.length > 0
 
@@ -39,7 +40,7 @@ const NavigationNode = props => {
   }
 
   return (
-    <Fragment>
+    <ThemeProvider theme={theme}>
       <NavigationListItem
         className={classes.page}
         node={node}
@@ -61,7 +62,7 @@ const NavigationNode = props => {
           <Fragment />
         )}
       </Collapse>
-    </Fragment>
+    </ThemeProvider>
   )
 }
 

@@ -1,7 +1,7 @@
 import React, { Fragment } from "react"
 import List from "@material-ui/core/List"
 import ListSubheader from "@material-ui/core/ListSubheader"
-import { makeStyles } from "@material-ui/core/styles"
+import { makeStyles, ThemeProvider, useTheme } from "@material-ui/core/styles"
 import MdxDivider from "../mdx/native-elements/mdx-divider"
 import PageNode from "./page-node"
 import TableOfContentsNode from "./table-of-contents-node"
@@ -14,13 +14,14 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const TableOfContents = props => {
+  const theme = useTheme()
   const classes = useStyles()
   const { currentNode } = props
   let hasTableOfContents = currentNode?.table_of_contents?.items?.length > 0
   let hasChildren = currentNode?.children?.length > 0
 
   return hasTableOfContents || hasChildren ? (
-    <Fragment>
+    <ThemeProvider theme={theme}>
       <List
         component="nav"
         aria-labelledby="page-table-of-contents-subheader"
@@ -45,7 +46,7 @@ const TableOfContents = props => {
           ))}
       </List>
       {hasTableOfContents ? <MdxDivider /> : <Fragment />}
-    </Fragment>
+    </ThemeProvider>
   ) : (
     <Fragment />
   )

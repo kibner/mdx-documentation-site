@@ -4,7 +4,7 @@ import { green, lightBlue, orange } from "@mui/material/colors"
 let theme = createTheme(adaptV4Theme({
   breakpoints: {
     keys: ["xs", "sm", "md", "lg", "xl"],
-    values: { xs: 0, sm: 853, md: 960, lg: 1280, xl: 1920 }
+    values: { xs: 0, sm: 600, md: 900, lg: 1200, xl: 1536 }
   },
   direction: "ltr",
   mixins: {
@@ -84,7 +84,7 @@ let theme = createTheme(adaptV4Theme({
     divider: "rgba(255, 255, 255, 0.12)",
     background: {
       paper: "#424242",
-      default: "#303030",
+      default: "#121212",
       secondary: "#212121"
     },
     action: {

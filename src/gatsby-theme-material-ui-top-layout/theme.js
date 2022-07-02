@@ -1,4 +1,5 @@
-import { createTheme, responsiveFontSizes, adaptV4Theme } from "@mui/material";
+import { adaptV4Theme, createTheme, responsiveFontSizes } from "@mui/material"
+import { green, lightBlue, orange } from "@mui/material/colors"
 
 let theme = createTheme(adaptV4Theme({
   breakpoints: {
@@ -36,21 +37,21 @@ let theme = createTheme(adaptV4Theme({
       contrastText: "#fff"
     },
     warning: {
-      light: "#ffb74d",
-      main: "#ff9800",
-      dark: "#f57c00",
+      light: orange[500],
+      main: "#ED6C02",
+      dark: orange[900],
       contrastText: "rgba(0, 0, 0, 0.87)"
     },
     info: {
-      light: "#64b5f6",
-      main: "#2196f3",
-      dark: "#1976d2",
+      light: lightBlue[500],
+      main: lightBlue[700],
+      dark: lightBlue[900],
       contrastText: "#fff"
     },
     success: {
-      light: "#81c784",
-      main: "#4caf50",
-      dark: "#388e3c",
+      light: green[500],
+      main: green[800],
+      dark: green[900],
       contrastText: "rgba(0, 0, 0, 0.87)"
     },
     grey: {

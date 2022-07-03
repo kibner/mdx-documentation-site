@@ -8,7 +8,7 @@ import TableOfContentsNode from "./table-of-contents-node"
 
 const useStyles = makeStyles(theme => ({
   list: {
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.background.secondary,
     width: 240
   }
 }))

@@ -4,7 +4,7 @@ import React from "react"
 
 const StyledOrderedList = withStyles(theme => ({
   root: {
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.background.secondary,
     width: "fit-content",
     marginBottom: theme.spacing(2),
     listStyle: "decimal inside",

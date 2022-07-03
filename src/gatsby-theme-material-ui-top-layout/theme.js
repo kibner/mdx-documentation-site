@@ -83,7 +83,6 @@ let theme = createTheme({
     },
     divider: "rgba(255, 255, 255, 0.12)",
     background: {
-      paper: "#424242",
       default: "#121212",
       secondary: "#212121"
     },

@@ -9,9 +9,9 @@ import MdxDivider from "../../components/mdx/native-elements/mdx-divider"
 import MdxTableHeaderCell from "../../components/mdx/native-elements/mdx-table-header-cell"
 import MdxTableDataCell from "../../components/mdx/native-elements/mdx-table-data-cell"
 import TableHead from "@mui/material/TableHead"
-import TableBody from "@mui/material/TableBody"
 import MdxOrderedList from "../../components/mdx/native-elements/mdx-ordered-list"
 import MdxLink from "../../components/mdx/native-elements/mdx-link"
+import MdxTableBody from "../../components/mdx/native-elements/mdx-table-body"
 
 const MdxCustomizedComponents = {
   h1: props => <MdxHeader {...props} variant={"h1"} />,
@@ -29,7 +29,7 @@ const MdxCustomizedComponents = {
   li: props => <MdxListItem {...props} />,
   table: props => <MdxTableContainer {...props} />,
   thead: props => <TableHead {...props} />,
-  tbody: props => <TableBody {...props} />,
+  tbody: props => <MdxTableBody {...props} />,
   tr: props => <MdxTableRow {...props} />,
   th: props => <MdxTableHeaderCell {...props} />,
   td: props => <MdxTableDataCell {...props} />,

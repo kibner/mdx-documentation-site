@@ -84,7 +84,9 @@ let theme = createTheme({
     divider: "rgba(255, 255, 255, 0.12)",
     background: {
       default: "#121212",
-      secondary: "#212121"
+      secondary: "#212121",
+      tertiary: "rgba(48, 48, 48, 0.93)",
+      quaternary: "#303030",
     },
     action: {
       active: "#fff",

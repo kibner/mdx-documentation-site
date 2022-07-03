@@ -1,5 +1,5 @@
 import React from "react"
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles"
 import Footer from "./footer"
 import PropTypes from "prop-types"
 import Header from "./header"

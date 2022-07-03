@@ -1,7 +1,7 @@
 import React, { Fragment } from "react"
 import List from "@mui/material/List"
 import ListSubheader from "@mui/material/ListSubheader"
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles"
 import MdxDivider from "../mdx/native-elements/mdx-divider"
 import PageNode from "./page-node"
 import TableOfContentsNode from "./table-of-contents-node"
@@ -10,6 +10,9 @@ const useStyles = makeStyles(theme => ({
   list: {
     backgroundColor: theme.palette.background.secondary,
     width: 240
+  },
+  subheader: {
+    backgroundColor: theme.palette.background.secondary
   }
 }))
 
@@ -27,7 +30,11 @@ const TableOfContents = props => {
         className={classes.list}
         dense
         subheader={
-          <ListSubheader component="div" id="page-table-of-contents-subheader">
+          <ListSubheader
+            component="div"
+            id="page-table-of-contents-subheader"
+            className={classes.subheader}
+          >
             Table of Contents
           </ListSubheader>
         }

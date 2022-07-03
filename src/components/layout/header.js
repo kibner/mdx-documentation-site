@@ -5,7 +5,7 @@ import MenuIcon from "@mui/icons-material/Menu"
 import Typography from "@mui/material/Typography"
 import Link from "../link"
 import AppBar from "@mui/material/AppBar"
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles"
 import { useSiteMetadataHeaderQuery } from "../../static-queries/use-site-metadata-header-query"
 
 const useStyles = makeStyles(theme => ({
@@ -51,7 +51,7 @@ const Header = props => {
         </Typography>
       </Toolbar>
     </AppBar>
-  );
+  )
 }
 
 export default Header

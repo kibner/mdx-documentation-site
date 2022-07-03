@@ -1,11 +1,11 @@
-import React, { Fragment } from "react";
-import List from "@mui/material/List";
-import ListItemLink from "../../list-item-link";
-import Divider from "@mui/material/Divider";
-import ListSubheader from "@mui/material/ListSubheader";
-import makeStyles from "@mui/styles/makeStyles";
-import HomeIcon from "@mui/icons-material/Home";
-import NavigationNode from "./navigation-node";
+import React, { Fragment } from "react"
+import List from "@mui/material/List"
+import ListItemLink from "../../list-item-link"
+import Divider from "@mui/material/Divider"
+import ListSubheader from "@mui/material/ListSubheader"
+import makeStyles from "@mui/styles/makeStyles"
+import HomeIcon from "@mui/icons-material/Home"
+import NavigationNode from "./navigation-node"
 
 const useStyles = makeStyles(theme => ({
   link: {
@@ -20,11 +20,11 @@ const useStyles = makeStyles(theme => ({
   subheader: {
     backgroundColor: theme.palette.background.secondary
   }
-}));
+}))
 
 const NavigationDrawer = props => {
-  const { navigationTree, breadcrumbNodes } = props;
-  const classes = useStyles();
+  const { navigationTree, breadcrumbNodes } = props
+  const classes = useStyles()
 
   return (
     <Fragment>
@@ -60,7 +60,7 @@ const NavigationDrawer = props => {
         ))}
       </List>
     </Fragment>
-  );
-};
+  )
+}
 
-export default NavigationDrawer;
+export default NavigationDrawer

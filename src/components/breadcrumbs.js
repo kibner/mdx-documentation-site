@@ -2,7 +2,7 @@ import React, { Fragment } from "react"
 import { default as MaterialBreadcrumbs } from "@mui/material/Breadcrumbs"
 import Link from "./link"
 import Typography from "@mui/material/Typography"
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles"
 import HomeIcon from "@mui/icons-material/Home"
 
 const useStyles = makeStyles(theme => ({

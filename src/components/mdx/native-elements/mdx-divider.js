@@ -1,4 +1,4 @@
-import withStyles from '@mui/styles/withStyles';
+import withStyles from "@mui/styles/withStyles"
 import Divider from "@mui/material/Divider"
 import React from "react"
 

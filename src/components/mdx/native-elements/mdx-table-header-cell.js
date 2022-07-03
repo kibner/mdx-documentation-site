@@ -1,4 +1,4 @@
-import withStyles from '@mui/styles/withStyles';
+import withStyles from "@mui/styles/withStyles"
 import TableCell from "@mui/material/TableCell"
 import React from "react"
 

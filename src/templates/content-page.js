@@ -12,7 +12,7 @@ import TableOfContents from "../components/table-of-contents/table-of-contents"
 import Breadcrumbs from "../components/breadcrumbs"
 import { GetBreadcrumbNodes, GetNodeById } from "../components/helpers/search-navigation-tree"
 import { useAllMdxQuery } from "../static-queries/use-all-mdx-query"
-import { ThemeProvider, StyledEngineProvider, useTheme } from "@mui/material/styles";
+import { StyledEngineProvider, ThemeProvider, useTheme } from "@mui/material/styles"
 
 const ContentPage = ({ pageContext }) => {
   const mdxProviderComponents = { ...MdxCustomizedComponents, ...MdxShortcodes }
@@ -28,7 +28,7 @@ const ContentPage = ({ pageContext }) => {
         <Layout navigationTree={navigationTree} breadcrumbNodes={breadcrumbNodes}>
           <Seo title={pageContext.frontmatter.title} />
           <Breadcrumbs breadcrumbNodes={breadcrumbNodes} />
-          <Typography variant={"h2"}>{pageContext.frontmatter.title}</Typography>
+          <Typography variant={"h1"}>{pageContext.frontmatter.title}</Typography>
           <MdxDivider variant={"fullWidth"} />
           <TableOfContents currentNode={currentNode} />
           <MDXProvider components={mdxProviderComponents}>
@@ -37,7 +37,7 @@ const ContentPage = ({ pageContext }) => {
         </Layout>
       </ThemeProvider>
     </StyledEngineProvider>
-  );
+  )
 }
 
 export default ContentPage

@@ -1,5 +1,5 @@
 import React, { Fragment } from "react"
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles"
 import Entry from "./entry"
 import List from "@mui/material/List"
 import Collapse from "@mui/material/Collapse"

@@ -1,7 +1,7 @@
 import React from "react"
 import { Typography } from "@mui/material"
 import Link from "../link"
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles"
 
 const useStyles = makeStyles(theme => ({
   footer: {

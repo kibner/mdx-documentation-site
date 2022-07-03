@@ -1,4 +1,4 @@
-import withStyles from '@mui/styles/withStyles';
+import withStyles from "@mui/styles/withStyles"
 import { Typography } from "@mui/material"
 import React from "react"
 

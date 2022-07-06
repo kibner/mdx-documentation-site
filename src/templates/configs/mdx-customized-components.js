@@ -1,17 +1,17 @@
-import React from "react"
-import { Typography } from "@mui/material"
-import MdxHeader from "../../components/mdx/native-elements/mdx-header"
-import MdxUnorderedList from "../../components/mdx/native-elements/mdx-unordered-list"
-import MdxListItem from "../../components/mdx/native-elements/mdx-list-item"
-import MdxTableContainer from "../../components/mdx/native-elements/mdx-table-container"
-import MdxTableRow from "../../components/mdx/native-elements/mdx-table-row"
-import MdxDivider from "../../components/mdx/native-elements/mdx-divider"
-import MdxTableHeaderCell from "../../components/mdx/native-elements/mdx-table-header-cell"
-import MdxTableDataCell from "../../components/mdx/native-elements/mdx-table-data-cell"
-import TableHead from "@mui/material/TableHead"
-import MdxOrderedList from "../../components/mdx/native-elements/mdx-ordered-list"
-import MdxLink from "../../components/mdx/native-elements/mdx-link"
-import MdxTableBody from "../../components/mdx/native-elements/mdx-table-body"
+import React from "react";
+import { Typography } from "@mui/material";
+import MdxHeader from "../../components/mdx/native-elements/mdx-header";
+import MdxUnorderedList from "../../components/mdx/native-elements/mdx-unordered-list";
+import MdxListItem from "../../components/mdx/native-elements/mdx-list-item";
+import MdxTableContainer from "../../components/mdx/native-elements/mdx-table-container";
+import MdxTableRow from "../../components/mdx/native-elements/mdx-table-row";
+import MdxDivider from "../../components/mdx/native-elements/mdx-divider";
+import MdxTableHeaderCell from "../../components/mdx/native-elements/mdx-table-header-cell";
+import MdxTableDataCell from "../../components/mdx/native-elements/mdx-table-data-cell";
+import MdxOrderedList from "../../components/mdx/native-elements/mdx-ordered-list";
+import MdxLink from "../../components/mdx/native-elements/mdx-link";
+import MdxTableBody from "../../components/mdx/native-elements/mdx-table-body";
+import MdxTableHead from "../../components/mdx/native-elements/mdx-table-head";
 
 const MdxCustomizedComponents = {
   h1: props => <MdxHeader {...props} variant={"h1"} />,
@@ -28,7 +28,7 @@ const MdxCustomizedComponents = {
   ol: props => <MdxOrderedList {...props} />,
   li: props => <MdxListItem {...props} />,
   table: props => <MdxTableContainer {...props} />,
-  thead: props => <TableHead {...props} />,
+  thead: props => <MdxTableHead {...props} />,
   tbody: props => <MdxTableBody {...props} />,
   tr: props => <MdxTableRow {...props} />,
   th: props => <MdxTableHeaderCell {...props} />,
@@ -41,6 +41,6 @@ const MdxCustomizedComponents = {
   // code: ,
   hr: props => <MdxDivider {...props} />
   // img: ,
-}
+};
 
-export default MdxCustomizedComponents
+export default MdxCustomizedComponents;

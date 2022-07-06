@@ -5,10 +5,10 @@ import React from "react"
 const StyledTableBody = withStyles(theme => ({
   root: {
     "& tr:nth-of-type(odd)": {
-      backgroundColor: theme.palette.background.tertiary
+      backgroundColor: theme.palette.background.quaternary
     },
     "& tr:nth-of-type(even)": {
-      backgroundColor: theme.palette.background.quaternary
+      backgroundColor: theme.palette.background.tertiary
     }
   }
 }))(TableBody)

@@ -32,7 +32,7 @@ const Entry = props => {
           case "d5":
             titleSegments.push(<D5 />)
             break
-          case "d611":
+          case "d6":
             titleSegments.push(<D6 />)
             break
           default:

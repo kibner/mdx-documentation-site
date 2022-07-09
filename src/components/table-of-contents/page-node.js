@@ -1,23 +1,19 @@
 import React, { Fragment } from "react"
 import Entry from "./entry"
-import makeStyles from "@mui/styles/makeStyles"
 import List from "@mui/material/List"
 import Collapse from "@mui/material/Collapse"
 import TableOfContentsNode from "./table-of-contents-node"
+import { styled } from "@mui/material/styles"
 
-const useStyles = makeStyles(theme => ({
-  nested: props => ({
-    paddingLeft: theme.spacing(props.spacing)
-  }),
-  page: {
-    color: theme.palette.text.primary
-  }
+const StyledList = styled(List)(({ theme }) => ({}))
+
+const StyledEntry = styled(Entry)(({ theme }) => ({
+  color: theme.palette.text.primary
 }))
 
 const PageNode = props => {
   const { node } = props
   const spacing = props.spacing ? props.spacing + 2 : 2
-  const classes = useStyles({ spacing: spacing })
   const [open, setOpen] = React.useState(false)
 
   const hasTableOfContents = node?.table_of_contents?.items?.length > 0
@@ -31,15 +27,21 @@ const PageNode = props => {
 
   return (
     <Fragment>
-      <Entry
-        className={classes.page}
+      <StyledEntry
         entry={{ url: node.slug, title: node.title }}
         expansionState={hasDescendents ? open : null}
         handleExpansionClick={hasDescendents ? handleClick : null}
       />
       <Collapse in={open} timeout="auto" unmountOnExit>
         {hasTableOfContents ? (
-          <List component="div" disablePadding dense className={classes.nested}>
+          <StyledList
+            component="div"
+            disablePadding
+            dense
+            sx={{
+              paddingLeft: theme => theme.spacing(spacing)
+            }}
+          >
             {node.table_of_contents.items.map(tableOfContentsNode => (
               <TableOfContentsNode
                 key={tableOfContentsNode.title}
@@ -47,16 +49,23 @@ const PageNode = props => {
                 slug={node.slug}
               />
             ))}
-          </List>
+          </StyledList>
         ) : (
           <Fragment />
         )}
         {hasChildren ? (
-          <List component="div" disablePadding dense className={classes.nested}>
+          <StyledList
+            component="div"
+            disablePadding
+            dense
+            sx={{
+              paddingLeft: theme => theme.spacing(spacing)
+            }}
+          >
             {node.children.map(child => (
               <PageNode key={child.id} node={child} />
             ))}
-          </List>
+          </StyledList>
         ) : (
           <Fragment />
         )}

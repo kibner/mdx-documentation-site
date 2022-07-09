@@ -1,22 +1,17 @@
 import React, { Fragment } from "react"
-import makeStyles from "@mui/styles/makeStyles"
-import Entry from "./entry"
 import List from "@mui/material/List"
 import Collapse from "@mui/material/Collapse"
+import { styled } from "@mui/material/styles"
 
-const useStyles = makeStyles(theme => ({
-  nested: props => ({
-    paddingLeft: theme.spacing(props.spacing)
-  }),
-  heading: {
-    color: theme.palette.text.secondary
-  }
+const StyledList = styled(List)(({ theme }) => ({}))
+
+const StyledEntry = styled(List)(({ theme }) => ({
+  color: theme.palette.text.secondary
 }))
 
 const TableOfContentsNode = props => {
   const { node, slug } = props
   const spacing = props.spacing ? props.spacing + 2 : 2
-  const classes = useStyles({ spacing: spacing })
   const [open, setOpen] = React.useState(false)
   const hasChildren = node?.items?.length > 0
 
@@ -27,15 +22,21 @@ const TableOfContentsNode = props => {
 
   return (
     <Fragment>
-      <Entry
-        className={classes.heading}
+      <StyledEntry
         entry={{ url: slug + node.url, title: node.title }}
         expansionState={hasChildren ? open : null}
         handleExpansionClick={hasChildren ? handleClick : null}
       />
       <Collapse in={open} timeout="auto" unmountOnExit>
         {hasChildren ? (
-          <List component="div" disablePadding dense className={classes.nested}>
+          <StyledList
+            component="div"
+            disablePadding
+            dense
+            sx={{
+              paddingLeft: theme => theme.spacing(spacing)
+            }}
+          >
             {node.items.map(tableOfContentsNode => (
               <TableOfContentsNode
                 key={tableOfContentsNode.title}
@@ -43,7 +44,7 @@ const TableOfContentsNode = props => {
                 slug={slug}
               />
             ))}
-          </List>
+          </StyledList>
         ) : (
           <Fragment />
         )}

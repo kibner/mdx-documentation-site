@@ -3,52 +3,48 @@ import List from "@mui/material/List"
 import ListItemLink from "../../list-item-link"
 import Divider from "@mui/material/Divider"
 import ListSubheader from "@mui/material/ListSubheader"
-import makeStyles from "@mui/styles/makeStyles"
 import HomeIcon from "@mui/icons-material/Home"
 import NavigationNode from "./navigation-node"
+import { styled } from "@mui/material/styles"
 
-const useStyles = makeStyles(theme => ({
-  link: {
-    color: theme.palette.text.primary
-  },
-  navigation: {
-    width: "100%",
-    position: "relative",
-    overflow: "auto",
-    backgroundColor: theme.palette.background.secondary
-  },
-  subheader: {
-    backgroundColor: theme.palette.background.secondary
-  }
+const StyledListItemLink = styled(ListItemLink)(({ theme }) => ({
+  color: theme.palette.text.primary
+}))
+
+const StyledList = styled(List)(({ theme }) => ({
+  width: "100%",
+  position: "relative",
+  overflow: "auto",
+  backgroundColor: theme.palette.background.secondary
+}))
+
+const StyledListSubheader = styled(ListSubheader)(({ theme }) => ({
+  backgroundColor: theme.palette.background.secondary
 }))
 
 const NavigationDrawer = props => {
   const { navigationTree, breadcrumbNodes } = props
-  const classes = useStyles()
 
   return (
     <Fragment>
       <List>
-        <ListItemLink
+        <StyledListItemLink
           primary={"Home"}
           to={"/"}
-          className={classes.link}
           icon={<HomeIcon />}
         />
       </List>
       <Divider />
-      <List
+      <StyledList
         component="nav"
-        className={classes.navigation}
         aria-labelledby="nested-list-subheader"
         subheader={
-          <ListSubheader
+          <StyledListSubheader
             component="div"
             id="nested-list-subheader"
-            className={classes.subheader}
           >
             Navigation
-          </ListSubheader>
+          </StyledListSubheader>
         }
       >
         {navigationTree.map(navigationNode => (
@@ -58,7 +54,7 @@ const NavigationDrawer = props => {
             breadcrumbNodes={breadcrumbNodes}
           />
         ))}
-      </List>
+      </StyledList>
     </Fragment>
   )
 }

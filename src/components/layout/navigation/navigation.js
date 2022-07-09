@@ -1,21 +1,21 @@
 import React from "react"
 import Drawer from "@mui/material/Drawer"
 import NavigationDrawer from "./navigation-drawer"
-import { useTheme } from "@mui/material/styles"
+import { styled, useTheme } from "@mui/material/styles"
+import Box from "@mui/material/Box"
 
-import makeStyles from "@mui/styles/makeStyles"
+const StyledBox = styled(Box)(({ theme }) => ({}))
 
-const useStyles = makeStyles(theme => ({
-  drawer: props => ({
-    [theme.breakpoints.up("sm")]: {
-      width: props.drawerWidth,
-      flexShrink: 0
-    }
-  }),
-  drawerPaper: props => ({
-    backgroundColor: theme.palette.background.secondary,
-    width: props.drawerWidth
-  })
+const StyledMobileDrawer = styled(Drawer)(({ theme }) => ({
+  "& .MuiDrawer-paper": {
+    backgroundColor: theme.palette.background.secondary
+  }
+}))
+
+const StyledDesktopDrawer = styled(Drawer)(({ theme }) => ({
+  "& .MuiDrawer-paper": {
+    backgroundColor: theme.palette.background.secondary
+  }
 }))
 
 const Navigation = props => {
@@ -28,48 +28,58 @@ const Navigation = props => {
     breadcrumbNodes
   } = props
 
-  const classes = useStyles({ drawerWidth: drawerWidth })
   const theme = useTheme()
 
   const container =
     window !== undefined ? () => window().document.body : undefined
 
   return (
-    <nav className={classes.drawer} aria-label="main site navigation">
+    <StyledBox
+      component={"nav"}
+      aria-label="main site navigation"
+      sx={{
+        width: { sm: props.drawerWidth },
+        flexShrink: { sm: 0 }
+      }}
+    >
       {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-      <Drawer
-        sx={{ display: { sm: "none", xs: "block" } }}
+      <StyledMobileDrawer
         container={container}
         variant="temporary"
         anchor={theme.direction === "rtl" ? "right" : "left"}
         open={mobileOpen}
         onClose={handleDrawerToggle}
-        classes={{
-          paper: classes.drawerPaper
-        }}
         ModalProps={{
           keepMounted: true // Better open performance on mobile.
         }}
+        sx={{
+          display: { xs: "block", sm: "none" },
+          "& .MuiDrawer-paper": {
+            width: drawerWidth
+          }
+        }}
       >
         <NavigationDrawer
           navigationTree={navigationTree}
           breadcrumbNodes={breadcrumbNodes}
         />
-      </Drawer>
-      <Drawer
-        sx={{ display: { xs: "none", sm: "block" } }}
-        classes={{
-          paper: classes.drawerPaper
-        }}
+      </StyledMobileDrawer>
+      <StyledDesktopDrawer
         variant="permanent"
         open
+        sx={{
+          display: { xs: "none", sm: "block" },
+          "& .MuiDrawer-paper": {
+            width: drawerWidth
+          }
+        }}
       >
         <NavigationDrawer
           navigationTree={navigationTree}
           breadcrumbNodes={breadcrumbNodes}
         />
-      </Drawer>
-    </nav>
+      </StyledDesktopDrawer>
+    </StyledBox>
   )
 }
 

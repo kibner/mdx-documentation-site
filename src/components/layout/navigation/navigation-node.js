@@ -2,16 +2,13 @@ import React, { Fragment } from "react"
 import List from "@mui/material/List"
 import Collapse from "@mui/material/Collapse"
 import NavigationListItem from "./navigation-list-item"
-import makeStyles from "@mui/styles/makeStyles"
+import { styled } from "@mui/material/styles"
 
-const useStyles = makeStyles(theme => ({
-  nested: props => ({
-    paddingLeft: theme.spacing(props.spacing)
-  }),
-  page: {
-    color: theme.palette.text.primary
-  }
+const StyledNavigationListItem = styled(NavigationListItem)(({ theme }) => ({
+  color: theme.palette.text.primary
 }))
+
+const StyledList = styled(List)(({ theme }) => ({}))
 
 const initialOpenState = (breadcrumbNodes, node) => {
   if (!breadcrumbNodes) return false
@@ -26,7 +23,6 @@ const initialOpenState = (breadcrumbNodes, node) => {
 const NavigationNode = props => {
   const { node, breadcrumbNodes } = props
   const spacing = props.spacing ? props.spacing + 2 : 2
-  const classes = useStyles({ spacing: spacing })
   const hasChildren = node?.children?.length > 0
 
   const [open, setOpen] = React.useState(
@@ -40,15 +36,20 @@ const NavigationNode = props => {
 
   return (
     <Fragment>
-      <NavigationListItem
-        className={classes.page}
+      <StyledNavigationListItem
         node={node}
         expansionState={hasChildren ? open : null}
         handleExpansionClick={hasChildren ? handleClick : null}
       />
       <Collapse in={open} timeout="auto" unmountOnExit>
         {hasChildren ? (
-          <List component="div" disablePadding className={classes.nested}>
+          <StyledList
+            component="div"
+            disablePadding
+            sx={{
+              paddingLeft: theme => theme.spacing(spacing)
+            }}
+          >
             {node.children.map(child => (
               <NavigationNode
                 key={child.id}
@@ -56,7 +57,7 @@ const NavigationNode = props => {
                 breadcrumbNodes={breadcrumbNodes}
               />
             ))}
-          </List>
+          </StyledList>
         ) : (
           <Fragment />
         )}

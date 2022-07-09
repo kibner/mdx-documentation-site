@@ -8,6 +8,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
+// TODO: remove dependency on makeStyles
 const NavigationListItem = props => {
   const classes = useStyles()
   const { node, className, expansionState, handleExpansionClick } = props

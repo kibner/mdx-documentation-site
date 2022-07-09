@@ -1,31 +1,37 @@
-import withStyles from "@mui/styles/withStyles"
 import List from "@mui/material/List"
 import React from "react"
+import { Paper } from "@mui/material"
 
-const StyledUnorderedList = withStyles(theme => ({
-  root: {
-    backgroundColor: theme.palette.background.paper,
+const MdxUnorderedList = props =>
+  <Paper sx={{
     width: "fit-content",
-    marginBottom: theme.spacing(2),
-    "&>li.MuiListItem-root": {
-      "&>div.MuiListItemText-root": {
-        "&>span.MuiListItemText-primary": {
-          "&>.MuiList-root": {
-            paddingBottom: 0,
-            marginBottom: 0,
-            "&>li.MuiListItem-root:last-child": {
-              paddingBottom: 0,
-              "&>div.MuiListItemText-root": {
-                marginBottom: 0
+    marginBottom: theme => theme.spacing(2)
+  }}>
+    <List
+      dense
+      sx={{
+        "&>li.MuiListItem-root": {
+          "&>div.MuiListItemText-root": {
+            "&>span.MuiListItemText-primary": {
+              "&>.MuiPaper-root": {
+                marginBottom: 0,
+                boxShadow: 'none',
+                "&>.MuiList-root": {
+                  paddingBottom: 0,
+                  marginBottom: 0,
+                  "&>li.MuiListItem-root:last-child": {
+                    paddingBottom: 0,
+                    "&>div.MuiListItemText-root": {
+                      marginBottom: 0
+                    }
+                  }
+                }
               }
             }
           }
         }
-      }
-    }
-  }
-}))(List)
-
-const MdxUnorderedList = props => <StyledUnorderedList dense {...props} />
+      }}
+      {...props} />
+  </Paper>
 
 export default MdxUnorderedList

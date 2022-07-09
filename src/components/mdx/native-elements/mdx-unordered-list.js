@@ -4,7 +4,7 @@ import React from "react"
 
 const StyledUnorderedList = withStyles(theme => ({
   root: {
-    backgroundColor: theme.palette.background.secondary,
+    backgroundColor: theme.palette.background.paper,
     width: "fit-content",
     marginBottom: theme.spacing(2),
     "&>li.MuiListItem-root": {

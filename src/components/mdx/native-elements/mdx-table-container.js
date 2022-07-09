@@ -1,18 +1,18 @@
-import withStyles from "@mui/styles/withStyles";
-import TableContainer from "@mui/material/TableContainer";
-import React from "react";
-import MdxTable from "./mdx-table";
+import withStyles from "@mui/styles/withStyles"
+import TableContainer from "@mui/material/TableContainer"
+import React from "react"
+import MdxTable from "./mdx-table"
+import { Paper } from "@mui/material"
 
 const StyledTableContainer = withStyles(theme => ({
   root: {
     marginBottom: theme.spacing(2)
   }
-}))(TableContainer);
+}))(TableContainer)
 
 const MdxTableContainer = props =>
-  <StyledTableContainer>
+  <StyledTableContainer component={Paper}>
     <MdxTable {...props} />
   </StyledTableContainer>
-;
 
-export default MdxTableContainer;
+export default MdxTableContainer

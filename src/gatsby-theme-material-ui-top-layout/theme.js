@@ -1,5 +1,5 @@
-import { createTheme, responsiveFontSizes } from "@mui/material";
-import { green, lightBlue, orange } from "@mui/material/colors";
+import { createTheme, responsiveFontSizes } from "@mui/material"
+import { green, lightBlue, orange } from "@mui/material/colors"
 
 let theme = createTheme({
   breakpoints: {
@@ -83,10 +83,9 @@ let theme = createTheme({
     },
     divider: "rgba(255, 255, 255, 0.12)",
     background: {
+      paper: "#303030",
       default: "#121212",
-      secondary: "#212121",
-      tertiary: "rgba(48, 48, 48, 0.93)",
-      quaternary: "rgba(48, 48, 48)"
+      secondary: "#212121"
     },
     action: {
       active: "#fff",
@@ -259,8 +258,8 @@ let theme = createTheme({
     snackbar: 1400,
     tooltip: 1500
   }
-});
+})
 
-theme = responsiveFontSizes(theme);
+theme = responsiveFontSizes(theme)
 
-export default theme;
+export default theme

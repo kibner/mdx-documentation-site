@@ -5,7 +5,8 @@ import React from "react"
 const StyledTableHeaderCell = withStyles(theme => ({
   head: {
     backgroundColor: theme.palette.background.secondary,
-    color: theme.palette.text.secondary
+    color: theme.palette.text.secondary,
+    borderBottom: 0
   }
 }))(TableCell)
 

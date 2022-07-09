@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
       width: `calc(100% - ${props.drawerWidth}px)`,
       marginLeft: props.drawerWidth
     },
-    backgroundColor: theme.palette.background.secondary
+    backgroundColor: theme.palette.background.paper
   }),
   menuButton: {
     marginRight: theme.spacing(2),

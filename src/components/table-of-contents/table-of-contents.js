@@ -8,11 +8,11 @@ import TableOfContentsNode from "./table-of-contents-node"
 
 const useStyles = makeStyles(theme => ({
   list: {
-    backgroundColor: theme.palette.background.secondary,
+    backgroundColor: theme.palette.background.paper,
     width: 240
   },
   subheader: {
-    backgroundColor: theme.palette.background.secondary
+    backgroundColor: theme.palette.background.paper
   }
 }))
 

@@ -5,52 +5,53 @@ import MenuIcon from "@mui/icons-material/Menu"
 import Typography from "@mui/material/Typography"
 import Link from "../link"
 import AppBar from "@mui/material/AppBar"
-import makeStyles from "@mui/styles/makeStyles"
 import { useSiteMetadataHeaderQuery } from "../../static-queries/use-site-metadata-header-query"
+import { styled } from "@mui/material/styles"
 
-const useStyles = makeStyles(theme => ({
-  appBar: props => ({
-    [theme.breakpoints.up("sm")]: {
-      width: `calc(100% - ${props.drawerWidth}px)`,
-      marginLeft: props.drawerWidth
-    },
-    backgroundColor: theme.palette.background.paper
-  }),
-  menuButton: {
-    marginRight: theme.spacing(2),
-    [theme.breakpoints.up("sm")]: {
-      display: "none"
-    }
-  },
-  title: {
-    color: theme.palette.text.primary
-  }
+const StyledAppBar = styled(AppBar)(({ theme }) => ({
+  backgroundColor: theme.palette.background.paper
+}))
+
+const StyledIconButton = styled(IconButton)(({ theme }) => ({
+  marginRight: theme.spacing(2)
+}))
+
+const StyledLink = styled(Link)(({ theme }) => ({
+  color: theme.palette.text.primary
 }))
 
 const Header = props => {
   const { position, drawerWidth, handleDrawerToggle } = props
   const siteMetadata = useSiteMetadataHeaderQuery()
-  const classes = useStyles({ drawerWidth: drawerWidth })
 
   return (
-    <AppBar position={position} className={classes.appBar}>
+    <StyledAppBar
+      position={position}
+      sx={{
+        width: { sm: `calc(100% - ${drawerWidth}px)` },
+        marginLeft: { sm: drawerWidth }
+      }}
+    >
       <Toolbar>
-        <IconButton
+        <StyledIconButton
           color="inherit"
           aria-label="open drawer"
           edge="start"
           onClick={handleDrawerToggle}
-          className={classes.menuButton}
-          size="large">
+          size="large"
+          sx={{
+            display: { sm: "none" }
+          }}
+        >
           <MenuIcon />
-        </IconButton>
+        </StyledIconButton>
         <Typography variant={"h6"}>
-          <Link to={"/"} className={classes.title}>
+          <StyledLink to={"/"}>
             {siteMetadata?.title || `Title`}
-          </Link>
+          </StyledLink>
         </Typography>
       </Toolbar>
-    </AppBar>
+    </StyledAppBar>
   )
 }
 

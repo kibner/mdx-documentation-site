@@ -1,16 +1,16 @@
 import React from "react"
-import withStyles from "@mui/styles/withStyles"
 import SvgIcon from "@mui/material/SvgIcon"
+import { styled } from "@mui/material/styles"
 
-const StyledSvgIcon = withStyles(theme => ({
-  root: {
-    verticalAlign: "text-top",
-    fontSize: "inherit"
-  }
-}))(SvgIcon)
+const StyledSvgIcon = styled(SvgIcon)(({ theme }) => ({
+  verticalAlign: "text-top",
+  fontSize: "inherit"
+}))
 
-const DieSvgIconWrapper = props => (
-  <StyledSvgIcon viewBox={"0 0 24 24"} {...props} />
-)
+const DieSvgIconWrapper = props =>
+  <StyledSvgIcon
+    {...props}
+    viewBox={"0 0 24 24"}
+  />
 
 export default DieSvgIconWrapper

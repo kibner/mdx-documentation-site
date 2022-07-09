@@ -1,11 +1,12 @@
-import withStyles from "@mui/styles/withStyles"
 import TableRow from "@mui/material/TableRow"
 import React from "react"
+import { styled } from "@mui/material/styles"
 
-const StyledTableRow = withStyles(theme => ({
-  root: {}
-}))(TableRow)
+const StyledTableRow = styled(TableRow)(({ theme }) => ({}))
 
-const MdxTableRow = props => <StyledTableRow {...props} />
+const MdxTableRow = props =>
+  <StyledTableRow
+    {...props}
+  />
 
 export default MdxTableRow

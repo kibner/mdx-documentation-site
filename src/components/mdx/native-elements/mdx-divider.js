@@ -1,16 +1,17 @@
-import withStyles from "@mui/styles/withStyles"
 import Divider from "@mui/material/Divider"
 import React from "react"
+import { styled } from "@mui/material/styles"
 
-const StyledDivider = withStyles(theme => ({
-  root: {
-    marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(2)
-  }
-}))(Divider)
+const StyledDivider = styled(Divider)(({ theme }) => ({
+  marginTop: theme.spacing(2),
+  marginBottom: theme.spacing(2)
+}))
 
 const MdxDivider = props => (
-  <StyledDivider {...props} variant={props.variant ?? "middle"} />
+  <StyledDivider
+    {...props}
+    variant={props.variant ?? "middle"}
+  />
 )
 
 export default MdxDivider

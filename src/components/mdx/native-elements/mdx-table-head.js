@@ -1,11 +1,12 @@
-import withStyles from "@mui/styles/withStyles";
-import TableHead from "@mui/material/TableHead";
-import React from "react";
+import TableHead from "@mui/material/TableHead"
+import React from "react"
+import { styled } from "@mui/material/styles"
 
-const StyledTableHead = withStyles(theme => ({
-  root: {}
-}))(TableHead);
+const StyledTableHead = styled(TableHead)(({ theme }) => ({}))
 
-const MdxTableHead = props => <StyledTableHead {...props} />;
+const MdxTableHead = props =>
+  <StyledTableHead
+    {...props}
+  />
 
-export default MdxTableHead;
+export default MdxTableHead

@@ -14,6 +14,8 @@ const useStyles = makeStyles(theme => ({
 const MdxLink = props => {
   const { href } = props
   const classes = useStyles()
+  // todo: perform logic in here to determine whether link is internal or external and then render an internal or
+  // external link. will require new components
 
   return (
     <Link

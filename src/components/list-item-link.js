@@ -14,7 +14,6 @@ const ListItemLink = props => {
     className,
     icon,
     activeClassName,
-    activeStyle,
   } = props
 
   const CustomLink = React.useMemo(
@@ -27,7 +26,6 @@ const ListItemLink = props => {
       component={CustomLink}
       className={className}
       activeClassName={activeClassName}
-      activeStyle={activeStyle}
       sx={props.sx}
     >
       {icon ? <ListItemIcon>{icon}</ListItemIcon> : <Fragment />}

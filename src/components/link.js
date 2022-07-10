@@ -11,7 +11,6 @@ const Link = ({
   to,
   href,
   activeClassName,
-  activeStyle,
   partiallyActive,
   title,
   internalStyle,
@@ -28,7 +27,6 @@ const Link = ({
     <GatsbyLink
       to={url}
       activeClassName={activeClassName}
-      activeStyle={activeStyle}
       partiallyActive={partiallyActive}
       sx={internalStyle}
       {...other}

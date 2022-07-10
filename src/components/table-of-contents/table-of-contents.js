@@ -5,6 +5,15 @@ import MdxDivider from "../mdx/native-elements/mdx-divider"
 import PageNode from "./page-node"
 import TableOfContentsNode from "./table-of-contents-node"
 import { Paper } from "@mui/material"
+import { styled } from "@mui/material/styles"
+
+const StyledPaper = styled(Paper)(({ theme }) => ({
+  width: 240,
+}))
+
+const StyledListSubheader = styled(ListSubheader)(({ theme }) => ({
+  backgroundColor: "inherit",
+}))
 
 const TableOfContents = props => {
   const { currentNode } = props
@@ -13,25 +22,18 @@ const TableOfContents = props => {
 
   return hasTableOfContents || hasChildren ? (
     <Fragment>
-      <Paper
-        sx={{
-          width: 240,
-        }}
-      >
+      <StyledPaper>
         <List
           component="nav"
           aria-labelledby="page-table-of-contents-subheader"
           dense
           subheader={
-            <ListSubheader
+            <StyledListSubheader
               component="div"
               id="page-table-of-contents-subheader"
-              sx={{
-                backgroundColor: "inherit",
-              }}
             >
               Table of Contents
-            </ListSubheader>
+            </StyledListSubheader>
           }
         >
           {hasTableOfContents
@@ -46,7 +48,7 @@ const TableOfContents = props => {
                 <PageNode key={pageNode.id} node={pageNode} />
               ))}
         </List>
-      </Paper>
+      </StyledPaper>
       {hasTableOfContents ? <MdxDivider /> : <Fragment />}
     </Fragment>
   ) : (

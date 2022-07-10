@@ -4,18 +4,18 @@ import { green, lightBlue, orange } from "@mui/material/colors"
 let theme = createTheme({
   breakpoints: {
     keys: ["xs", "sm", "md", "lg", "xl"],
-    values: { xs: 0, sm: 600, md: 900, lg: 1200, xl: 1536 }
+    values: { xs: 0, sm: 600, md: 900, lg: 1200, xl: 1536 },
   },
   direction: "ltr",
   mixins: {
     toolbar: {
       minHeight: 56,
       "@media (min-width:0px) and (orientation: landscape)": { minHeight: 48 },
-      "@media (min-width:600px)": { minHeight: 64 }
-    }
+      "@media (min-width:600px)": { minHeight: 64 },
+    },
   },
   overrides: {
-    MuiPaper: { root: { backgroundImage: "unset" } }
+    MuiPaper: { root: { backgroundImage: "unset" } },
   },
   palette: {
     common: { black: "#000", white: "#fff" },
@@ -24,37 +24,37 @@ let theme = createTheme({
       main: "#3f51b5",
       light: "#7986cb",
       dark: "#303f9f",
-      contrastText: "#fff"
+      contrastText: "#fff",
     },
     secondary: {
       main: "#f50057",
       light: "#ff4081",
       dark: "#c51162",
-      contrastText: "#fff"
+      contrastText: "#fff",
     },
     error: {
       light: "#e57373",
       main: "#f44336",
       dark: "#d32f2f",
-      contrastText: "#fff"
+      contrastText: "#fff",
     },
     warning: {
       light: orange[500],
       main: "#ED6C02",
       dark: orange[900],
-      contrastText: "rgba(0, 0, 0, 0.87)"
+      contrastText: "rgba(0, 0, 0, 0.87)",
     },
     info: {
       light: lightBlue[500],
       main: lightBlue[700],
       dark: lightBlue[900],
-      contrastText: "#fff"
+      contrastText: "#fff",
     },
     success: {
       light: green[500],
       main: green[800],
       dark: green[900],
-      contrastText: "rgba(0, 0, 0, 0.87)"
+      contrastText: "rgba(0, 0, 0, 0.87)",
     },
     grey: {
       50: "#fafafa",
@@ -70,7 +70,7 @@ let theme = createTheme({
       A100: "#d5d5d5",
       A200: "#aaaaaa",
       A400: "#303030",
-      A700: "#616161"
+      A700: "#616161",
     },
     contrastThreshold: 3,
     tonalOffset: 0.2,
@@ -79,13 +79,13 @@ let theme = createTheme({
       secondary: "rgba(255, 255, 255, 0.7)",
       disabled: "rgba(255, 255, 255, 0.5)",
       hint: "rgba(255, 255, 255, 0.5)",
-      icon: "rgba(255, 255, 255, 0.5)"
+      icon: "rgba(255, 255, 255, 0.5)",
     },
     divider: "rgba(255, 255, 255, 0.12)",
     background: {
       paper: "#303030",
       default: "#121212",
-      secondary: "#212121"
+      secondary: "#212121",
     },
     action: {
       active: "#fff",
@@ -98,8 +98,8 @@ let theme = createTheme({
       disabledOpacity: 0.38,
       focus: "rgba(255, 255, 255, 0.12)",
       focusOpacity: 0.12,
-      activatedOpacity: 0.24
-    }
+      activatedOpacity: 0.24,
+    },
   },
   props: {},
   shadows: [
@@ -127,109 +127,109 @@ let theme = createTheme({
     "0px 10px 13px -6px rgba(0,0,0,0.2),0px 21px 33px 3px rgba(0,0,0,0.14),0px 8px 40px 7px rgba(0,0,0,0.12)",
     "0px 10px 14px -6px rgba(0,0,0,0.2),0px 22px 35px 3px rgba(0,0,0,0.14),0px 8px 42px 7px rgba(0,0,0,0.12)",
     "0px 11px 14px -7px rgba(0,0,0,0.2),0px 23px 36px 3px rgba(0,0,0,0.14),0px 9px 44px 8px rgba(0,0,0,0.12)",
-    "0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12)"
+    "0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12)",
   ],
   typography: {
     htmlFontSize: 16,
-    fontFamily: "\"Roboto\", \"Helvetica\", \"Arial\", sans-serif",
+    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
     fontSize: 14,
     fontWeightLight: 300,
     fontWeightRegular: 400,
     fontWeightMedium: 500,
     fontWeightBold: 700,
     h1: {
-      fontFamily: "\"Roboto\", \"Helvetica\", \"Arial\", sans-serif",
+      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: 300,
       fontSize: "6rem",
       lineHeight: 1.167,
-      letterSpacing: "-0.01562em"
+      letterSpacing: "-0.01562em",
     },
     h2: {
-      fontFamily: "\"Roboto\", \"Helvetica\", \"Arial\", sans-serif",
+      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: 300,
       fontSize: "3.75rem",
       lineHeight: 1.2,
-      letterSpacing: "-0.00833em"
+      letterSpacing: "-0.00833em",
     },
     h3: {
-      fontFamily: "\"Roboto\", \"Helvetica\", \"Arial\", sans-serif",
+      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: 400,
       fontSize: "3rem",
       lineHeight: 1.167,
-      letterSpacing: "0em"
+      letterSpacing: "0em",
     },
     h4: {
-      fontFamily: "\"Roboto\", \"Helvetica\", \"Arial\", sans-serif",
+      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: 400,
       fontSize: "2.125rem",
       lineHeight: 1.235,
-      letterSpacing: "0.00735em"
+      letterSpacing: "0.00735em",
     },
     h5: {
-      fontFamily: "\"Roboto\", \"Helvetica\", \"Arial\", sans-serif",
+      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: 400,
       fontSize: "1.5rem",
       lineHeight: 1.334,
-      letterSpacing: "0em"
+      letterSpacing: "0em",
     },
     h6: {
-      fontFamily: "\"Roboto\", \"Helvetica\", \"Arial\", sans-serif",
+      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: 500,
       fontSize: "1.25rem",
       lineHeight: 1.6,
-      letterSpacing: "0.0075em"
+      letterSpacing: "0.0075em",
     },
     subtitle1: {
-      fontFamily: "\"Roboto\", \"Helvetica\", \"Arial\", sans-serif",
+      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: 400,
       fontSize: "1rem",
       lineHeight: 1.75,
-      letterSpacing: "0.00938em"
+      letterSpacing: "0.00938em",
     },
     subtitle2: {
-      fontFamily: "\"Roboto\", \"Helvetica\", \"Arial\", sans-serif",
+      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: 500,
       fontSize: "0.875rem",
       lineHeight: 1.57,
-      letterSpacing: "0.00714em"
+      letterSpacing: "0.00714em",
     },
     body1: {
-      fontFamily: "\"Roboto\", \"Helvetica\", \"Arial\", sans-serif",
+      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: 400,
       fontSize: "1rem",
       lineHeight: 1.5,
-      letterSpacing: "0.00938em"
+      letterSpacing: "0.00938em",
     },
     body2: {
-      fontFamily: "\"Roboto\", \"Helvetica\", \"Arial\", sans-serif",
+      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: 400,
       fontSize: "0.875rem",
       lineHeight: 1.43,
-      letterSpacing: "0.01071em"
+      letterSpacing: "0.01071em",
     },
     button: {
-      fontFamily: "\"Roboto\", \"Helvetica\", \"Arial\", sans-serif",
+      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: 500,
       fontSize: "0.875rem",
       lineHeight: 1.75,
       letterSpacing: "0.02857em",
-      textTransform: "uppercase"
+      textTransform: "uppercase",
     },
     caption: {
-      fontFamily: "\"Roboto\", \"Helvetica\", \"Arial\", sans-serif",
+      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: 400,
       fontSize: "0.75rem",
       lineHeight: 1.66,
-      letterSpacing: "0.03333em"
+      letterSpacing: "0.03333em",
     },
     overline: {
-      fontFamily: "\"Roboto\", \"Helvetica\", \"Arial\", sans-serif",
+      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: 400,
       fontSize: "0.75rem",
       lineHeight: 2.66,
       letterSpacing: "0.08333em",
-      textTransform: "uppercase"
-    }
+      textTransform: "uppercase",
+    },
   },
   shape: { borderRadius: 4 },
   transitions: {
@@ -237,7 +237,7 @@ let theme = createTheme({
       easeInOut: "cubic-bezier(0.4, 0, 0.2, 1)",
       easeOut: "cubic-bezier(0.0, 0, 0.2, 1)",
       easeIn: "cubic-bezier(0.4, 0, 1, 1)",
-      sharp: "cubic-bezier(0.4, 0, 0.6, 1)"
+      sharp: "cubic-bezier(0.4, 0, 0.6, 1)",
     },
     duration: {
       shortest: 150,
@@ -246,8 +246,8 @@ let theme = createTheme({
       standard: 300,
       complex: 375,
       enteringScreen: 225,
-      leavingScreen: 195
-    }
+      leavingScreen: 195,
+    },
   },
   zIndex: {
     mobileStepper: 1000,
@@ -256,8 +256,8 @@ let theme = createTheme({
     drawer: 1200,
     modal: 1300,
     snackbar: 1400,
-    tooltip: 1500
-  }
+    tooltip: 1500,
+  },
 })
 
 theme = responsiveFontSizes(theme)

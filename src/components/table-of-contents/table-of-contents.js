@@ -13,9 +13,11 @@ const TableOfContents = props => {
 
   return hasTableOfContents || hasChildren ? (
     <Fragment>
-      <Paper sx={{
-        width: 240
-      }}>
+      <Paper
+        sx={{
+          width: 240,
+        }}
+      >
         <List
           component="nav"
           aria-labelledby="page-table-of-contents-subheader"
@@ -25,7 +27,7 @@ const TableOfContents = props => {
               component="div"
               id="page-table-of-contents-subheader"
               sx={{
-                backgroundColor: 'inherit'
+                backgroundColor: "inherit",
               }}
             >
               Table of Contents
@@ -34,15 +36,15 @@ const TableOfContents = props => {
         >
           {hasTableOfContents
             ? currentNode.table_of_contents.items.map(tableOfContentsNode => (
-              <TableOfContentsNode
-                key={tableOfContentsNode.title}
-                node={tableOfContentsNode}
-                slug={currentNode.slug}
-              />
-            ))
+                <TableOfContentsNode
+                  key={tableOfContentsNode.title}
+                  node={tableOfContentsNode}
+                  slug={currentNode.slug}
+                />
+              ))
             : currentNode.children.map(pageNode => (
-              <PageNode key={pageNode.id} node={pageNode} />
-            ))}
+                <PageNode key={pageNode.id} node={pageNode} />
+              ))}
         </List>
       </Paper>
       {hasTableOfContents ? <MdxDivider /> : <Fragment />}

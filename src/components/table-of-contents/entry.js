@@ -41,7 +41,7 @@ const Entry = props => {
       },
       ontext(text) {
         titleSegments.push(text)
-      }
+      },
     },
     { recognizeSelfClosing: true }
   )

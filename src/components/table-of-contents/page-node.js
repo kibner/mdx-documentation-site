@@ -8,7 +8,7 @@ import { styled } from "@mui/material/styles"
 const StyledList = styled(List)(({ theme }) => ({}))
 
 const StyledEntry = styled(Entry)(({ theme }) => ({
-  color: theme.palette.text.primary
+  color: theme.palette.text.primary,
 }))
 
 const PageNode = props => {
@@ -39,7 +39,7 @@ const PageNode = props => {
             disablePadding
             dense
             sx={{
-              paddingLeft: theme => theme.spacing(spacing)
+              paddingLeft: theme => theme.spacing(spacing),
             }}
           >
             {node.table_of_contents.items.map(tableOfContentsNode => (
@@ -59,7 +59,7 @@ const PageNode = props => {
             disablePadding
             dense
             sx={{
-              paddingLeft: theme => theme.spacing(spacing)
+              paddingLeft: theme => theme.spacing(spacing),
             }}
           >
             {node.children.map(child => (

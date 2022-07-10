@@ -7,7 +7,7 @@ import Entry from "./entry"
 const StyledList = styled(List)(({ theme }) => ({}))
 
 const StyledEntry = styled(Entry)(({ theme }) => ({
-  color: theme.palette.text.secondary
+  color: theme.palette.text.secondary,
 }))
 
 const TableOfContentsNode = props => {
@@ -35,7 +35,7 @@ const TableOfContentsNode = props => {
             disablePadding
             dense
             sx={{
-              paddingLeft: theme => theme.spacing(spacing)
+              paddingLeft: theme => theme.spacing(spacing),
             }}
           >
             {node.items.map(tableOfContentsNode => (

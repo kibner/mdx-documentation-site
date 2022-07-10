@@ -5,7 +5,7 @@ import { styled } from "@mui/material/styles"
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
   width: "fit-content",
-  marginBottom: theme => theme.spacing(2)
+  marginBottom: theme => theme.spacing(2),
 }))
 
 const StyledList = styled(List)(({ theme }) => ({
@@ -23,23 +23,20 @@ const StyledList = styled(List)(({ theme }) => ({
             "&>li.MuiListItem-root:last-child": {
               paddingBottom: 0,
               "&>div.MuiListItemText-root": {
-                marginBottom: 0
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+                marginBottom: 0,
+              },
+            },
+          },
+        },
+      },
+    },
+  },
 }))
 
-const MdxOrderedList = props =>
+const MdxOrderedList = props => (
   <StyledPaper elevation={0}>
-    <StyledList
-      {...props}
-      component={"ol"}
-      dense
-    />
+    <StyledList {...props} component={"ol"} dense />
   </StyledPaper>
+)
 
 export default MdxOrderedList

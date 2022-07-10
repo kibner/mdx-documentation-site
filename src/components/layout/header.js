@@ -9,16 +9,16 @@ import { useSiteMetadataHeaderQuery } from "../../static-queries/use-site-metada
 import { styled } from "@mui/material/styles"
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
-  backgroundColor: theme.palette.background.paper
+  backgroundColor: theme.palette.background.paper,
 }))
 
 const StyledIconButton = styled(IconButton)(({ theme }) => ({
-  marginRight: theme.spacing(2)
+  marginRight: theme.spacing(2),
 }))
 
 const StyledLink = styled(Link)(({ theme }) => ({
   color: theme.palette.text.primary,
-  textDecorationColor: "inherit"
+  textDecorationColor: "inherit",
 }))
 
 const Header = props => {
@@ -30,7 +30,7 @@ const Header = props => {
       position={position}
       sx={{
         width: { sm: `calc(100% - ${drawerWidth}px)` },
-        marginLeft: { sm: drawerWidth }
+        marginLeft: { sm: drawerWidth },
       }}
     >
       <Toolbar>
@@ -41,15 +41,13 @@ const Header = props => {
           onClick={handleDrawerToggle}
           size="large"
           sx={{
-            display: { sm: "none" }
+            display: { sm: "none" },
           }}
         >
           <MenuIcon />
         </StyledIconButton>
         <Typography variant={"h6"}>
-          <StyledLink to={"/"}>
-            {siteMetadata?.title || `Title`}
-          </StyledLink>
+          <StyledLink to={"/"}>{siteMetadata?.title || `Title`}</StyledLink>
         </Typography>
       </Toolbar>
     </StyledAppBar>

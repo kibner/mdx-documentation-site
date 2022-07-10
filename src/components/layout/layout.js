@@ -9,21 +9,17 @@ import { styled } from "@mui/material/styles"
 const drawerWidth = 240
 
 const StyledRootDiv = styled("div")(({ theme }) => ({
-  display: "flex"
+  display: "flex",
 }))
 
 const StyledToolbarDiv = styled("div")(({ theme }) => ({
   minHeight: 56,
   "@media (min-width:0px) and (orientation: landscape)": {
-    minHeight: `${
-      theme.mixins.toolbar["@media (min-width:0px) and (orientation: landscape)"].minHeight
-    }px`
+    minHeight: `${theme.mixins.toolbar["@media (min-width:0px) and (orientation: landscape)"].minHeight}px`,
   },
   "@media (min-width:600px)": {
-    minHeight: `${
-      theme.mixins.toolbar["@media (min-width:600px)"].minHeight
-    }px`
-  }
+    minHeight: `${theme.mixins.toolbar["@media (min-width:600px)"].minHeight}px`,
+  },
 }))
 
 const StyledMain = styled("main")(({ theme }) => ({
@@ -31,7 +27,7 @@ const StyledMain = styled("main")(({ theme }) => ({
   padding: theme.spacing(3),
   marginLeft: "auto",
   marginRight: "auto",
-  maxWidth: 960
+  maxWidth: 960,
 }))
 
 const Layout = props => {
@@ -67,7 +63,7 @@ const Layout = props => {
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 }
 
 export default Layout

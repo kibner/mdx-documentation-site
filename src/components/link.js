@@ -1,27 +1,27 @@
-import React from "react";
-import { Link as GatsbyLink } from "gatsby-theme-material-ui";
-import Tooltip from "@mui/material/Tooltip";
-import MuiLink from "@mui/material/Link";
+import React from "react"
+import { Link as GatsbyLink } from "gatsby-theme-material-ui"
+import Tooltip from "@mui/material/Tooltip"
+import MuiLink from "@mui/material/Link"
 
 // Since DOM elements <a> cannot receive activeClassName
 // and partiallyActive, destructure the prop here and
 // pass it only to GatsbyLink
 const Link = ({
-                children,
-                to,
-                href,
-                activeClassName,
-                activeStyle,
-                partiallyActive,
-                title,
-                internalStyle,
-                externalStyle,
-                ...other
-              }) => {
+  children,
+  to,
+  href,
+  activeClassName,
+  activeStyle,
+  partiallyActive,
+  title,
+  internalStyle,
+  externalStyle,
+  ...other
+}) => {
   // internal links start with / or #
-  let url = to ?? href;
-  const firstCharacter = url[0];
-  const isInternal = firstCharacter === "/" || firstCharacter === "#";
+  let url = to ?? href
+  const firstCharacter = url[0]
+  const isInternal = firstCharacter === "/" || firstCharacter === "#"
 
   // Use Gatsby Link for internal links, and MUI Link for others
   const link = isInternal ? (
@@ -45,14 +45,14 @@ const Link = ({
     >
       {children}
     </MuiLink>
-  );
+  )
 
   // add a tooltip for the title if one exists
   if (title) {
-    return <Tooltip title={title}>{link}</Tooltip>;
+    return <Tooltip title={title}>{link}</Tooltip>
   } else {
-    return link;
+    return link
   }
-};
+}
 
-export default Link;
+export default Link

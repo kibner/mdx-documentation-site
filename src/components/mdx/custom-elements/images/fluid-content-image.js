@@ -17,7 +17,9 @@ const FluidContentImage = props => {
     )
   }
 
-  return <GatsbyImage image={image.node.childImageSharp.gatsbyImageData} alt={alt} />
+  return (
+    <GatsbyImage image={image.node.childImageSharp.gatsbyImageData} alt={alt} />
+  )
 }
 
 export default FluidContentImage

@@ -5,11 +5,10 @@ import { styled } from "@mui/material/styles"
 
 const StyledListItem = styled(ListItem)(({ theme }) => ({}))
 
-const MdxListItem = props =>
+const MdxListItem = props => (
   <StyledListItem>
-    <MdxListItemText
-      {...props}
-    />
+    <MdxListItemText {...props} />
   </StyledListItem>
+)
 
 export default MdxListItem

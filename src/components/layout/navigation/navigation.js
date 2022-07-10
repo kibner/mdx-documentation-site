@@ -8,14 +8,14 @@ const StyledBox = styled(Box)(({ theme }) => ({}))
 
 const StyledMobileDrawer = styled(Drawer)(({ theme }) => ({
   "& .MuiDrawer-paper": {
-    backgroundColor: theme.palette.background.secondary
-  }
+    backgroundColor: theme.palette.background.secondary,
+  },
 }))
 
 const StyledDesktopDrawer = styled(Drawer)(({ theme }) => ({
   "& .MuiDrawer-paper": {
-    backgroundColor: theme.palette.background.secondary
-  }
+    backgroundColor: theme.palette.background.secondary,
+  },
 }))
 
 const Navigation = props => {
@@ -25,7 +25,7 @@ const Navigation = props => {
     handleDrawerToggle,
     mobileOpen,
     navigationTree,
-    breadcrumbNodes
+    breadcrumbNodes,
   } = props
 
   const theme = useTheme()
@@ -39,7 +39,7 @@ const Navigation = props => {
       aria-label="main site navigation"
       sx={{
         width: { sm: props.drawerWidth },
-        flexShrink: { sm: 0 }
+        flexShrink: { sm: 0 },
       }}
     >
       {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
@@ -50,13 +50,13 @@ const Navigation = props => {
         open={mobileOpen}
         onClose={handleDrawerToggle}
         ModalProps={{
-          keepMounted: true // Better open performance on mobile.
+          keepMounted: true, // Better open performance on mobile.
         }}
         sx={{
           display: { xs: "block", sm: "none" },
           "& .MuiDrawer-paper": {
-            width: drawerWidth
-          }
+            width: drawerWidth,
+          },
         }}
       >
         <NavigationDrawer
@@ -70,8 +70,8 @@ const Navigation = props => {
         sx={{
           display: { xs: "none", sm: "block" },
           "& .MuiDrawer-paper": {
-            width: drawerWidth
-          }
+            width: drawerWidth,
+          },
         }}
       >
         <NavigationDrawer

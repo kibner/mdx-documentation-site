@@ -1,8 +1,8 @@
-import React from "react";
-import ListItemLink from "../../list-item-link";
+import React from "react"
+import ListItemLink from "../../list-item-link"
 
 const NavigationListItem = props => {
-  const { node, className, expansionState, handleExpansionClick } = props;
+  const { node, className, expansionState, handleExpansionClick } = props
 
   return (
     <ListItemLink
@@ -14,11 +14,11 @@ const NavigationListItem = props => {
       handleExpansionClick={handleExpansionClick}
       sx={{
         "&.active": {
-          backgroundColor: theme => theme.palette.action.focus
-        }
+          backgroundColor: theme => theme.palette.action.focus,
+        },
       }}
     />
-  );
-};
+  )
+}
 
-export default NavigationListItem;
+export default NavigationListItem

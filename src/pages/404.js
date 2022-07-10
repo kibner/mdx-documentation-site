@@ -5,7 +5,11 @@ import Layout from "../components/layout/layout"
 import BuildNavigationTree from "../components/helpers/build-navigation-tree"
 import MdxDivider from "../components/mdx/native-elements/mdx-divider"
 import { useAllMdxQuery } from "../static-queries/use-all-mdx-query"
-import { StyledEngineProvider, ThemeProvider, useTheme } from "@mui/material/styles"
+import {
+  StyledEngineProvider,
+  ThemeProvider,
+  useTheme,
+} from "@mui/material/styles"
 
 const NotFoundPage = () => {
   const allMdx = useAllMdxQuery()

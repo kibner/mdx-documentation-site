@@ -14,7 +14,7 @@ const ListItemLink = props => {
     className,
     icon,
     activeClassName,
-    activeStyle
+    activeStyle,
   } = props
 
   const CustomLink = React.useMemo(

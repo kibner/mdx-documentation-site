@@ -4,9 +4,6 @@ import { styled } from "@mui/material/styles"
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({}))
 
-const MdxTableRow = props =>
-  <StyledTableRow
-    {...props}
-  />
+const MdxTableRow = props => <StyledTableRow {...props} />
 
 export default MdxTableRow

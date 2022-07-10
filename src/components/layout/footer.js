@@ -4,12 +4,12 @@ import Link from "../link"
 import { styled } from "@mui/material/styles"
 
 const StyledFooter = styled("footer")(({ theme }) => ({
-  marginTop: theme.spacing(2)
+  marginTop: theme.spacing(2),
 }))
 
 const StyledLink = styled(Link)(({ theme }) => ({
   color: theme.palette.secondary.light,
-  textDecorationColor: "inherit"
+  textDecorationColor: "inherit",
 }))
 
 const Footer = () => {
@@ -18,9 +18,7 @@ const Footer = () => {
       <Typography variant={"caption"}>
         © {new Date().getFullYear()}, Built with
         {` `}
-        <StyledLink to={"https://www.gatsbyjs.com"}>
-          Gatsby
-        </StyledLink>
+        <StyledLink to={"https://www.gatsbyjs.com"}>Gatsby</StyledLink>
       </Typography>
     </StyledFooter>
   )

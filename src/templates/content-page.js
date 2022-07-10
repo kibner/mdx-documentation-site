@@ -10,9 +10,16 @@ import BuildNavigationTree from "../components/helpers/build-navigation-tree"
 import MdxDivider from "../components/mdx/native-elements/mdx-divider"
 import TableOfContents from "../components/table-of-contents/table-of-contents"
 import Breadcrumbs from "../components/breadcrumbs"
-import { GetBreadcrumbNodes, GetNodeById } from "../components/helpers/search-navigation-tree"
+import {
+  GetBreadcrumbNodes,
+  GetNodeById,
+} from "../components/helpers/search-navigation-tree"
 import { useAllMdxQuery } from "../static-queries/use-all-mdx-query"
-import { StyledEngineProvider, ThemeProvider, useTheme } from "@mui/material/styles"
+import {
+  StyledEngineProvider,
+  ThemeProvider,
+  useTheme,
+} from "@mui/material/styles"
 
 const ContentPage = ({ pageContext }) => {
   const mdxProviderComponents = { ...MdxCustomizedComponents, ...MdxShortcodes }
@@ -25,10 +32,15 @@ const ContentPage = ({ pageContext }) => {
   return (
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
-        <Layout navigationTree={navigationTree} breadcrumbNodes={breadcrumbNodes}>
+        <Layout
+          navigationTree={navigationTree}
+          breadcrumbNodes={breadcrumbNodes}
+        >
           <Seo title={pageContext.frontmatter.title} />
           <Breadcrumbs breadcrumbNodes={breadcrumbNodes} />
-          <Typography variant={"h1"}>{pageContext.frontmatter.title}</Typography>
+          <Typography variant={"h1"}>
+            {pageContext.frontmatter.title}
+          </Typography>
           <MdxDivider variant={"fullWidth"} />
           <TableOfContents currentNode={currentNode} />
           <MDXProvider components={mdxProviderComponents}>

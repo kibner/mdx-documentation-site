@@ -5,16 +5,13 @@ import { Paper } from "@mui/material"
 import { styled } from "@mui/material/styles"
 
 const StyledTableContainer = styled(TableContainer)(({ theme }) => ({
-  marginBottom: theme.spacing(2)
+  marginBottom: theme.spacing(2),
 }))
 
-const MdxTableContainer = props =>
-  <StyledTableContainer
-    component={Paper}
-  >
-    <MdxTable
-      {...props}
-    />
+const MdxTableContainer = props => (
+  <StyledTableContainer component={Paper}>
+    <MdxTable {...props} />
   </StyledTableContainer>
+)
 
 export default MdxTableContainer

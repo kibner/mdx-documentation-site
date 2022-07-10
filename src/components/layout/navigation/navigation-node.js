@@ -5,7 +5,7 @@ import NavigationListItem from "./navigation-list-item"
 import { styled } from "@mui/material/styles"
 
 const StyledNavigationListItem = styled(NavigationListItem)(({ theme }) => ({
-  color: theme.palette.text.primary
+  color: theme.palette.text.primary,
 }))
 
 const StyledList = styled(List)(({ theme }) => ({}))
@@ -47,7 +47,7 @@ const NavigationNode = props => {
             component="div"
             disablePadding
             sx={{
-              paddingLeft: theme => theme.spacing(spacing)
+              paddingLeft: theme => theme.spacing(spacing),
             }}
           >
             {node.children.map(child => (

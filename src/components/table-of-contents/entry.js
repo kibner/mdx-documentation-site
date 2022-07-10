@@ -50,17 +50,15 @@ const Entry = props => {
   parser.end()
 
   return (
-    <Fragment>
-      <ListItemLink
-        className={className}
-        primary={titleSegments.map((segment, index) => (
-          <Fragment key={index}>{segment}</Fragment>
-        ))}
-        to={entry.url}
-        expansionState={expansionState}
-        handleExpansionClick={handleExpansionClick}
-      />
-    </Fragment>
+    <ListItemLink
+      className={className}
+      primary={titleSegments.map((segment, index) => (
+        <Fragment key={index}>{segment}</Fragment>
+      ))}
+      to={entry.url}
+      expansionState={expansionState}
+      handleExpansionClick={handleExpansionClick}
+    />
   )
 }
 

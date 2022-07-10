@@ -12,6 +12,7 @@ import MdxOrderedList from "../../components/mdx/native-elements/mdx-ordered-lis
 import MdxLink from "../../components/mdx/native-elements/mdx-link"
 import MdxTableBody from "../../components/mdx/native-elements/mdx-table-body"
 import MdxTableHead from "../../components/mdx/native-elements/mdx-table-head"
+import MdxImage from "../../components/mdx/native-elements/mdx-image"
 
 const MdxCustomizedComponents = {
   h1: props => <MdxHeader {...props} variant={"h1"} />,
@@ -40,7 +41,7 @@ const MdxCustomizedComponents = {
   // delete: ,
   // code: ,
   hr: props => <MdxDivider {...props} />,
-  // img: ,
+  img: props => <MdxImage {...props} />,
 }
 
 export default MdxCustomizedComponents

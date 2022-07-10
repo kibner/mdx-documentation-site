@@ -2,10 +2,11 @@ import React, { Fragment } from "react"
 import List from "@mui/material/List"
 import Collapse from "@mui/material/Collapse"
 import { styled } from "@mui/material/styles"
+import Entry from "./entry"
 
 const StyledList = styled(List)(({ theme }) => ({}))
 
-const StyledEntry = styled(List)(({ theme }) => ({
+const StyledEntry = styled(Entry)(({ theme }) => ({
   color: theme.palette.text.secondary
 }))
 

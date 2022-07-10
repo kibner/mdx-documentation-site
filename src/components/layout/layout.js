@@ -14,8 +14,16 @@ const StyledRootDiv = styled("div")(({ theme }) => ({
 
 const StyledToolbarDiv = styled("div")(({ theme }) => ({
   minHeight: 56,
-  "@media (min-width:0px) and (orientation: landscape)": { minHeight: 48 },
-  "@media (min-width:600px)": { minHeight: 64 }
+  "@media (min-width:0px) and (orientation: landscape)": {
+    minHeight: `${
+      theme.mixins.toolbar["@media (min-width:0px) and (orientation: landscape)"].minHeight
+    }px`
+  },
+  "@media (min-width:600px)": {
+    minHeight: `${
+      theme.mixins.toolbar["@media (min-width:600px)"].minHeight
+    }px`
+  }
 }))
 
 const StyledMain = styled("main")(({ theme }) => ({

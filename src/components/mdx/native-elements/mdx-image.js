@@ -4,12 +4,11 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import { styled } from "@mui/material/styles"
 
 const StyledImg = styled("img")(({ theme }) => ({
-  maxWidth: "100%",
+  maxWidth: "100%"
 }))
 
 const MdxImage = props => {
   const contentImages = useFluidContentImagesQuery()
-
   const image = contentImages.find(edge => edge.node.relativePath === props.src)
 
   if (!image?.node?.childImageSharp?.gatsbyImageData) {
@@ -21,6 +20,7 @@ const MdxImage = props => {
       image={image.node.childImageSharp.gatsbyImageData}
       alt={props.alt}
       title={props.title}
+      as={"span"}
     />
   )
 }

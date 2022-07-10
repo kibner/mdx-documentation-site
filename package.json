@@ -2,7 +2,7 @@
   "name": "mdx-documentation-site",
   "private": true,
   "description": "A documentation site that uses MDX pages for content.",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "John D'Oriocourt <kibner@gmail.com>",
   "dependencies": {
     "@emotion/react": "^11.9.3",

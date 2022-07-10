@@ -1,7 +1,7 @@
-import React from "react"
-import { Link as GatsbyLink } from "gatsby-theme-material-ui"
-import Tooltip from "@mui/material/Tooltip"
-import MuiLink from "@mui/material/Link"
+import React from "react";
+import { Link as GatsbyLink } from "gatsby-theme-material-ui";
+import Tooltip from "@mui/material/Tooltip";
+import MuiLink from "@mui/material/Link";
 
 // Since DOM elements <a> cannot receive activeClassName
 // and partiallyActive, destructure the prop here and
@@ -11,31 +11,26 @@ const Link = ({
                 to,
                 href,
                 activeClassName,
+                activeStyle,
                 partiallyActive,
                 title,
-                className,
                 internalClassName,
                 externalClassName,
                 ...other
               }) => {
   // internal links start with / or #
-  let url = to ?? href
-  const firstCharacter = url[0]
-  const isInternal = firstCharacter === "/" || firstCharacter === "#"
+  let url = to ?? href;
+  const firstCharacter = url[0];
+  const isInternal = firstCharacter === "/" || firstCharacter === "#";
 
-  className = className ?? ""
-  internalClassName = internalClassName ?? ""
-  externalClassName = externalClassName ?? ""
-  activeClassName = activeClassName ?? ""
-
-  // Use Gatsby Link for internal links, and <a> for others
+  // Use Gatsby Link for internal links, and MUI Link for others
   const link = isInternal ? (
     <GatsbyLink
       to={url}
       activeClassName={activeClassName}
+      activeStyle={activeStyle}
       partiallyActive={partiallyActive}
-      className={`${className} ${internalClassName}`}
-      sx={{ textDecorationColor: "inherit" }}
+      sx={internalClassName}
       {...other}
     >
       {children}
@@ -45,19 +40,19 @@ const Link = ({
       href={url}
       target={other.target ?? "_blank"}
       rel={other.rel ?? "noopener noreferrer"}
-      className={`${className} ${externalClassName}`}
-      sx={{ textDecorationColor: "inherit" }}
-      {...other}>
+      sx={externalClassName}
+      {...other}
+    >
       {children}
     </MuiLink>
-  )
+  );
 
   // add a tooltip for the title if one exists
   if (title) {
-    return <Tooltip title={title}>{link}</Tooltip>
+    return <Tooltip title={title}>{link}</Tooltip>;
   } else {
-    return link
+    return link;
   }
-}
+};
 
-export default Link
+export default Link;

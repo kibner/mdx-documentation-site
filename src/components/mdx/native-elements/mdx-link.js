@@ -1,30 +1,25 @@
-import React from "react"
-import Link from "../../link"
-import makeStyles from "@mui/styles/makeStyles"
-
-const useStyles = makeStyles(theme => ({
-  internalLink: {
-    color: theme.palette.primary.light
-  },
-  externalLink: {
-    color: theme.palette.secondary.light
-  }
-}))
+import React from "react";
+import Link from "../../link";
 
 const MdxLink = props => {
-  const { href } = props
-  const classes = useStyles()
-  // todo: perform logic in here to determine whether link is internal or external and then render an internal or
-  // external link. will require new components
+  const { href } = props;
 
   return (
     <Link
       to={href}
-      internalClassName={classes.internalLink}
-      externalClassName={classes.externalLink}
+      // uses sx syntax
+      internalClassName={{
+        color: theme => theme.palette.primary.light,
+        textDecorationColor: "inherit"
+      }}
+      // uses sx syntax
+      externalClassName={{
+        color: theme => theme.palette.secondary.light,
+        textDecorationColor: "inherit"
+      }}
       {...props}
     />
-  )
-}
+  );
+};
 
-export default MdxLink
+export default MdxLink;

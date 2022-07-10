@@ -11,7 +11,8 @@ const StyledMaterialBreadcrumbs = styled(MaterialBreadcrumbs)(({ theme }) => ({
 
 const StyledLink = styled(Link)(({ theme }) => ({
   display: "flex",
-  color: theme.palette.text.secondary
+  color: theme.palette.text.secondary,
+  textDecorationColor: "inherit"
 }))
 
 const StyledTypography = styled(Typography)(({ theme }) => ({

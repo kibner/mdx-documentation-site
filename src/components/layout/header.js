@@ -17,7 +17,8 @@ const StyledIconButton = styled(IconButton)(({ theme }) => ({
 }))
 
 const StyledLink = styled(Link)(({ theme }) => ({
-  color: theme.palette.text.primary
+  color: theme.palette.text.primary,
+  textDecorationColor: "inherit"
 }))
 
 const Header = props => {

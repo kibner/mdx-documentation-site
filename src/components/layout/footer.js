@@ -8,7 +8,8 @@ const StyledFooter = styled("footer")(({ theme }) => ({
 }))
 
 const StyledLink = styled(Link)(({ theme }) => ({
-  color: theme.palette.secondary.light
+  color: theme.palette.secondary.light,
+  textDecorationColor: "inherit"
 }))
 
 const Footer = () => {

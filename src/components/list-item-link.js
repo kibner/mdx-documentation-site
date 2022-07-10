@@ -23,7 +23,6 @@ const ListItemLink = props => {
 
   return (
     <ListItemButton
-      // button
       component={CustomLink}
       className={className}
       activeClassName={activeClassName}

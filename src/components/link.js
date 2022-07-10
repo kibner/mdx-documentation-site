@@ -14,8 +14,8 @@ const Link = ({
                 activeStyle,
                 partiallyActive,
                 title,
-                internalClassName,
-                externalClassName,
+                internalStyle,
+                externalStyle,
                 ...other
               }) => {
   // internal links start with / or #
@@ -30,7 +30,7 @@ const Link = ({
       activeClassName={activeClassName}
       activeStyle={activeStyle}
       partiallyActive={partiallyActive}
-      sx={internalClassName}
+      sx={internalStyle}
       {...other}
     >
       {children}
@@ -40,7 +40,7 @@ const Link = ({
       href={url}
       target={other.target ?? "_blank"}
       rel={other.rel ?? "noopener noreferrer"}
-      sx={externalClassName}
+      sx={externalStyle}
       {...other}
     >
       {children}

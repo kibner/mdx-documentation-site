@@ -13,7 +13,8 @@ const ListItemLink = props => {
     handleExpansionClick,
     className,
     icon,
-    activeClassName
+    activeClassName,
+    activeStyle
   } = props
 
   const CustomLink = React.useMemo(
@@ -26,6 +27,8 @@ const ListItemLink = props => {
       component={CustomLink}
       className={className}
       activeClassName={activeClassName}
+      activeStyle={activeStyle}
+      sx={props.sx}
     >
       {icon ? <ListItemIcon>{icon}</ListItemIcon> : <Fragment />}
       <ListItemText primary={primary} />

@@ -1,30 +1,24 @@
-import React, { Fragment } from "react"
-import ListItemLink from "../../list-item-link"
-import makeStyles from "@mui/styles/makeStyles"
+import React from "react";
+import ListItemLink from "../../list-item-link";
 
-const useStyles = makeStyles(theme => ({
-  activeLink: {
-    backgroundColor: theme.palette.action.focus
-  }
-}))
-
-// TODO: remove dependency on makeStyles
 const NavigationListItem = props => {
-  const classes = useStyles()
-  const { node, className, expansionState, handleExpansionClick } = props
+  const { node, className, expansionState, handleExpansionClick } = props;
 
   return (
-    <Fragment>
-      <ListItemLink
-        className={className}
-        activeClassName={classes.activeLink}
-        primary={node.title}
-        to={node.slug}
-        expansionState={expansionState}
-        handleExpansionClick={handleExpansionClick}
-      />
-    </Fragment>
-  )
-}
+    <ListItemLink
+      className={className}
+      activeClassName={"active"}
+      primary={node.title}
+      to={node.slug}
+      expansionState={expansionState}
+      handleExpansionClick={handleExpansionClick}
+      sx={{
+        "&.active": {
+          backgroundColor: theme => theme.palette.action.focus
+        }
+      }}
+    />
+  );
+};
 
-export default NavigationListItem
+export default NavigationListItem;

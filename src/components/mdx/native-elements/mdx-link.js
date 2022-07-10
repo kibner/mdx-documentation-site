@@ -8,12 +8,12 @@ const MdxLink = props => {
     <Link
       to={href}
       // uses sx syntax
-      internalClassName={{
+      internalStyle={{
         color: theme => theme.palette.primary.light,
         textDecorationColor: "inherit"
       }}
       // uses sx syntax
-      externalClassName={{
+      externalStyle={{
         color: theme => theme.palette.secondary.light,
         textDecorationColor: "inherit"
       }}

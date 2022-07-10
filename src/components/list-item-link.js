@@ -1,9 +1,9 @@
 import React, { Fragment } from "react"
-import ListItem from "@mui/material/ListItem"
 import ListItemText from "@mui/material/ListItemText"
 import Link from "./link"
 import { ExpandLess, ExpandMore } from "@mui/icons-material"
 import ListItemIcon from "@mui/material/ListItemIcon"
+import { ListItemButton } from "@mui/material"
 
 const ListItemLink = props => {
   const {
@@ -22,8 +22,8 @@ const ListItemLink = props => {
   )
 
   return (
-    <ListItem
-      button
+    <ListItemButton
+      // button
       component={CustomLink}
       className={className}
       activeClassName={activeClassName}
@@ -37,7 +37,7 @@ const ListItemLink = props => {
       ) : (
         <ExpandMore onClick={handleExpansionClick} />
       )}
-    </ListItem>
+    </ListItemButton>
   )
 }
 

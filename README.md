@@ -30,7 +30,7 @@ information on how to take advantage of this powerful content creation tool.
 
 If this is your first time trying to run the site, be sure to run `npm install` from the root directory first. After all
 the dependencies are installed, run `npm run develop` to build and run the site locally.
-See https://www.gatsbyjs.com/docs/gatsby-cli/ for more information on Gatsby CLI commands.
+See https://www.gatsbyjs.com/docs/gatsby-cli/ for information other CLI commands that are specific to the Gatsby framework.
 
 Gatsby uses hot-loading so you do not need to stop and start the site after every change or even refresh the page you
 are making a change on (in most cases). Just simply save the file you are working on and Gatsby will automatically make

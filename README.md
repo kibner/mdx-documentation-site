@@ -1,7 +1,6 @@
 # Prerequisites
 
 1. Node.js/NPM: https://nodejs.org/en/
-2. Gatsby CLI: `npm install -g gatsby-cli`
 
 # How to Use
 
@@ -30,7 +29,7 @@ information on how to take advantage of this powerful content creation tool.
 ## How to Run
 
 If this is your first time trying to run the site, be sure to run `npm install` from the root directory first. After all
-the dependencies are installed, run `gatsby develop` to build and run the site locally.
+the dependencies are installed, run `npm run develop` to build and run the site locally.
 See https://www.gatsbyjs.com/docs/gatsby-cli/ for more information on Gatsby CLI commands.
 
 Gatsby uses hot-loading so you do not need to stop and start the site after every change or even refresh the page you

@@ -64,6 +64,6 @@ a given HTML element, modify `/src/templates/configs/mdx-customized-components.j
 
 ## Theme
 
-[Material-UI](https://material-ui.com) is the site's UI framework. To customize the theme,
+[Material-UI](https://mui.com/material-ui/getting-started/overview/) is the site's UI framework. To customize the theme,
 modify `/src/gatsby-theme-material-ui-top-layout/theme.js`. It is important that all components are styled using what is
 defined in this file in order to keep a consistent look and feel.

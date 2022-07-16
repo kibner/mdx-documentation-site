@@ -4,7 +4,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import { styled } from "@mui/material/styles"
 
 const StyledImg = styled("img")(({ theme }) => ({
-  maxWidth: "100%"
+  maxWidth: "100%",
 }))
 
 const MdxImage = props => {

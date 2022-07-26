@@ -1,5 +1,5 @@
 {
-  "name": "mdx-documentation-site",
+  "name": "mdx-documentation-site-sanity-studio",
   "private": true,
   "version": "1.0.0",
   "description": "",
@@ -27,5 +27,7 @@
     "react-dom": "^17.0",
     "styled-components": "^5.2.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@sanity/cli": "^2.30.2"
+  }
 }

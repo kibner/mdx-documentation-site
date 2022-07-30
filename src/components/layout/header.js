@@ -14,7 +14,6 @@ const StyledAppBar = styled(AppBar)(({ theme }) => ({
 
 const StyledIconButton = styled(IconButton)(({ theme }) => ({
   marginRight: theme.spacing(2),
-  display: { sm: "none" },
 }))
 
 const StyledLink = styled(Link)(({ theme }) => ({
@@ -41,6 +40,9 @@ const Header = props => {
           edge="start"
           onClick={handleDrawerToggle}
           size="large"
+          sx={{
+            display: { sm: "none" },
+          }}
         >
           <MenuIcon />
         </StyledIconButton>

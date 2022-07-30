@@ -20,12 +20,13 @@ import {
   ThemeProvider,
   useTheme,
 } from "@mui/material/styles"
+import { graphql } from "gatsby"
 
-const ContentPage = ({ pageContext }) => {
+export default function ContentPage({ data: { mdx } }) {
   const mdxProviderComponents = { ...MdxCustomizedComponents, ...MdxShortcodes }
   const allMdx = useAllMdxQuery()
   const navigationTree = BuildNavigationTree(allMdx)
-  const currentNode = GetNodeById(navigationTree, pageContext.id)
+  const currentNode = GetNodeById(navigationTree, mdx.id)
   const breadcrumbNodes = GetBreadcrumbNodes(navigationTree, currentNode)
   const theme = useTheme()
 
@@ -36,15 +37,13 @@ const ContentPage = ({ pageContext }) => {
           navigationTree={navigationTree}
           breadcrumbNodes={breadcrumbNodes}
         >
-          <Seo title={pageContext.frontmatter.title} />
+          <Seo title={mdx.frontmatter.title} />
           <Breadcrumbs breadcrumbNodes={breadcrumbNodes} />
-          <Typography variant={"h1"}>
-            {pageContext.frontmatter.title}
-          </Typography>
+          <Typography variant={"h1"}>{mdx.frontmatter.title}</Typography>
           <MdxDivider variant={"fullWidth"} />
           <TableOfContents currentNode={currentNode} />
           <MDXProvider components={mdxProviderComponents}>
-            <MDXRenderer>{pageContext.body}</MDXRenderer>
+            <MDXRenderer>{mdx.body}</MDXRenderer>
           </MDXProvider>
         </Layout>
       </ThemeProvider>
@@ -52,4 +51,14 @@ const ContentPage = ({ pageContext }) => {
   )
 }
 
-export default ContentPage
+export const pageQuery = graphql`
+  query ContentPageQuery($id: String) {
+    mdx(id: { eq: $id }) {
+      id
+      body
+      frontmatter {
+        title
+      }
+    }
+  }
+`

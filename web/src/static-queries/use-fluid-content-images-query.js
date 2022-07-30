@@ -11,11 +11,7 @@ export const useFluidContentImagesQuery = () => {
             node {
               relativePath
               childImageSharp {
-                gatsbyImageData(
-                  width: 960
-                  placeholder: TRACED_SVG
-                  layout: CONSTRAINED
-                )
+                gatsbyImageData(placeholder: TRACED_SVG, layout: CONSTRAINED)
               }
             }
           }

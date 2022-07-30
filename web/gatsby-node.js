@@ -7,21 +7,6 @@
 // You can delete this file if you're not using it
 
 const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
-
-exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions
-
-  if (node.internal.type === "Mdx") {
-    const slug = createFilePath({ node, getNode })
-
-    createNodeField({
-      node,
-      name: "slug",
-      value: slug,
-    })
-  }
-}
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
@@ -34,13 +19,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         edges {
           node {
             id
-            frontmatter {
-              title
-            }
-            body
-            fields {
-              slug
-            }
+            slug
           }
         }
       }
@@ -53,14 +32,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   result.data.allMdx.edges.forEach(({ node }) => {
     createPage({
-      path: node.fields.slug,
+      path: `/${node.slug}`,
       component: path.resolve(`./src/templates/content-page.js`),
       // Data passed to context is available
       // in page queries as GraphQL variables.
       context: {
         id: node.id,
-        frontmatter: node.frontmatter,
-        body: node.body,
       },
     })
   })

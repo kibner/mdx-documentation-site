@@ -27,24 +27,24 @@ export function GetNodeBySlug(navigationTree, slug) {
 export function GetBreadcrumbNodes(navigationTree, currentNode) {
   if (!currentNode) return false
 
-  let endIndex = currentNode.slug.indexOf("/") + 1
-  let startIndex = 0
-  let searchString = ""
   let searchNode = navigationTree
   const breadcrumbNodes = []
 
-  while (startIndex < currentNode.slug.length) {
-    searchString += currentNode.slug.slice(startIndex, endIndex)
-    const searchResult = GetNodeBySlug(searchNode, searchString)
+  // search each segment of slug
+  currentNode.slug.split("/").reduce((previousValue, currentValue) => {
+    const slug =
+      previousValue.length > 0
+        ? `${previousValue}/${currentValue}`
+        : currentValue
+    const searchResult = GetNodeBySlug(searchNode, slug)
 
     if (searchResult) {
       breadcrumbNodes.push(searchResult)
       searchNode = searchResult.children
     }
 
-    startIndex = endIndex
-    endIndex = currentNode.slug.indexOf("/", endIndex) + 1
-  }
+    return slug
+  }, "")
 
   return breadcrumbNodes
 }

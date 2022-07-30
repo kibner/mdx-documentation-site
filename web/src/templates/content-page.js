@@ -14,7 +14,6 @@ import {
   GetBreadcrumbNodes,
   GetNodeById,
 } from "../components/helpers/search-navigation-tree"
-import { useAllMdxQuery } from "../static-queries/use-all-mdx-query"
 import {
   StyledEngineProvider,
   ThemeProvider,
@@ -22,10 +21,9 @@ import {
 } from "@mui/material/styles"
 import { graphql } from "gatsby"
 
-export default function ContentPage({ data: { mdx } }) {
+export default function ContentPage({ data: { mdx, allMdx } }) {
   const mdxProviderComponents = { ...MdxCustomizedComponents, ...MdxShortcodes }
-  const allMdx = useAllMdxQuery()
-  const navigationTree = BuildNavigationTree(allMdx)
+  const navigationTree = BuildNavigationTree(allMdx.edges)
   const currentNode = GetNodeById(navigationTree, mdx.id)
   const breadcrumbNodes = GetBreadcrumbNodes(navigationTree, currentNode)
   const theme = useTheme()
@@ -58,6 +56,19 @@ export const pageQuery = graphql`
       body
       frontmatter {
         title
+      }
+    }
+    allMdx(sort: { fields: slug }) {
+      edges {
+        node {
+          id
+          slug
+          frontmatter {
+            title
+            display_order
+          }
+          tableOfContents
+        }
       }
     }
   }

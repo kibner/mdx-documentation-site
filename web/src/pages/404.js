@@ -4,16 +4,15 @@ import { Typography } from "@mui/material"
 import Layout from "../components/layout/layout"
 import BuildNavigationTree from "../components/helpers/build-navigation-tree"
 import MdxDivider from "../components/mdx/native-elements/mdx-divider"
-import { useAllMdxQuery } from "../static-queries/use-all-mdx-query"
 import {
   StyledEngineProvider,
   ThemeProvider,
   useTheme,
 } from "@mui/material/styles"
+import { graphql } from "gatsby"
 
-const NotFoundPage = () => {
-  const allMdx = useAllMdxQuery()
-  const navigationTree = BuildNavigationTree(allMdx)
+export default function NotFoundPage({ data: { allMdx } }) {
+  const navigationTree = BuildNavigationTree(allMdx.edges)
   const theme = useTheme()
 
   return (
@@ -32,4 +31,20 @@ const NotFoundPage = () => {
   )
 }
 
-export default NotFoundPage
+export const pageQuery = graphql`
+  query NotFoundPageQuery {
+    allMdx(sort: { fields: slug }) {
+      edges {
+        node {
+          id
+          slug
+          frontmatter {
+            title
+            display_order
+          }
+          tableOfContents
+        }
+      }
+    }
+  }
+`

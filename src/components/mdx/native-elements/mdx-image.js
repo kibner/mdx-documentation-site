@@ -15,9 +15,7 @@ const MdxImage = props => {
     return <StyledImg {...props} />
   }
 
-  return (
-    <GatsbyImage {...props} />
-  )
+  return <GatsbyImage {...props} />
 }
 
 export default MdxImage

@@ -17,23 +17,11 @@ const Link = ({
   externalStyle,
   ...other
 }) => {
-  // internal links start with / or #
-  let url = to ?? href
-  const firstCharacter = url[0]
-  const isInternal = firstCharacter === "/" || firstCharacter === "#"
+  const url = to ?? href
+  const isExternal = url.indexOf("://") > 0 || url.indexOf("//") === 0
 
   // Use Gatsby Link for internal links, and MUI Link for others
-  const link = isInternal ? (
-    <GatsbyLink
-      to={url}
-      activeClassName={activeClassName}
-      partiallyActive={partiallyActive}
-      sx={internalStyle}
-      {...other}
-    >
-      {children}
-    </GatsbyLink>
-  ) : (
+  const link = isExternal ? (
     <MuiLink
       href={url}
       target={other.target ?? "_blank"}
@@ -43,6 +31,16 @@ const Link = ({
     >
       {children}
     </MuiLink>
+  ) : (
+    <GatsbyLink
+      to={`${url[0] === "/" ? url : `/${url}`}`}
+      activeClassName={activeClassName}
+      partiallyActive={partiallyActive}
+      sx={internalStyle}
+      {...other}
+    >
+      {children}
+    </GatsbyLink>
   )
 
   // add a tooltip for the title if one exists

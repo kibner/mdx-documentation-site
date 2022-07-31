@@ -22,8 +22,8 @@ import {
 import { graphql } from "gatsby"
 
 export default function ContentPage({
-                                      data: { mdx, allMdx, contentImagesRelativePath },
-                                    }) {
+  data: { mdx, allMdx, contentImagesRelativePath },
+}) {
   const imageWithExtraProps = props => (
     <MdxCustomizedComponents.img
       {...props}

@@ -33,7 +33,7 @@ const Link = ({
     </MuiLink>
   ) : (
     <GatsbyLink
-      to={`${url[0] === "/" ? url : `/${url}`}`}
+      to={url}
       activeClassName={activeClassName}
       partiallyActive={partiallyActive}
       sx={internalStyle}

@@ -28,7 +28,7 @@ const PageNode = props => {
   return (
     <Fragment>
       <StyledEntry
-        entry={{ url: node.slug, title: node.title }}
+        entry={{ url: `/${node.slug}`, title: node.title }}
         expansionState={hasDescendents ? open : null}
         handleExpansionClick={hasDescendents ? handleClick : null}
       />

@@ -9,7 +9,7 @@ const NavigationListItem = props => {
       className={className}
       activeClassName={"active"}
       primary={node.title}
-      to={node.slug}
+      to={`/${node.slug}`}
       expansionState={expansionState}
       handleExpansionClick={handleExpansionClick}
       sx={{

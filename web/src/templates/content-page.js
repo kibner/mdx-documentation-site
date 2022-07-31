@@ -21,8 +21,21 @@ import {
 } from "@mui/material/styles"
 import { graphql } from "gatsby"
 
-export default function ContentPage({ data: { mdx, allMdx } }) {
-  const mdxProviderComponents = { ...MdxCustomizedComponents, ...MdxShortcodes }
+export default function ContentPage({
+                                      data: { mdx, allMdx, contentImagesRelativePath },
+                                    }) {
+  const imageWithExtraProps = props => (
+    <MdxCustomizedComponents.img
+      {...props}
+      content_images_relative_path={contentImagesRelativePath}
+    />
+  )
+
+  const mdxProviderComponents = {
+    ...MdxCustomizedComponents,
+    ...MdxShortcodes,
+    img: imageWithExtraProps,
+  }
   const navigationTree = BuildNavigationTree(allMdx.edges)
   const currentNode = GetNodeById(navigationTree, mdx.id)
   const breadcrumbNodes = GetBreadcrumbNodes(navigationTree, currentNode)
@@ -68,6 +81,15 @@ export const pageQuery = graphql`
             display_order
           }
           tableOfContents
+        }
+      }
+    }
+    contentImagesRelativePath: allFile(
+      filter: { sourceInstanceName: { eq: "content-images" } }
+    ) {
+      edges {
+        node {
+          relativePath
         }
       }
     }

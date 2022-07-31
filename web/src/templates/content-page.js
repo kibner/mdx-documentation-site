@@ -20,24 +20,12 @@ import {
   useTheme,
 } from "@mui/material/styles"
 import { graphql } from "gatsby"
+import { useAllMDXMetadataQuery } from "../static-queries/use-all-mdx-metadata-query"
 
-export default function ContentPage({
-  data: { mdx, allMdx, contentImagesRelativePath },
-}) {
-  const imageWithExtraProps = props => (
-    <MdxCustomizedComponents.img
-      {...props}
-      content_images_relative_path={contentImagesRelativePath}
-    />
-  )
-
-  const mdxProviderComponents = {
-    ...MdxCustomizedComponents,
-    ...MdxShortcodes,
-    img: imageWithExtraProps,
-  }
-  const navigationTree = BuildNavigationTree(allMdx.edges)
-  const currentNode = GetNodeById(navigationTree, mdx.id)
+export default function ContentPage({ data: { pageContext } }) {
+  const allMDXMetadata = useAllMDXMetadataQuery()
+  const navigationTree = BuildNavigationTree(allMDXMetadata)
+  const currentNode = GetNodeById(navigationTree, pageContext.id)
   const breadcrumbNodes = GetBreadcrumbNodes(navigationTree, currentNode)
   const theme = useTheme()
 
@@ -48,13 +36,17 @@ export default function ContentPage({
           navigationTree={navigationTree}
           breadcrumbNodes={breadcrumbNodes}
         >
-          <Seo title={mdx.frontmatter.title} />
+          <Seo title={pageContext.frontmatter.title} />
           <Breadcrumbs breadcrumbNodes={breadcrumbNodes} />
-          <Typography variant={"h1"}>{mdx.frontmatter.title}</Typography>
+          <Typography variant={"h1"}>
+            {pageContext.frontmatter.title}
+          </Typography>
           <MdxDivider variant={"fullWidth"} />
           <TableOfContents currentNode={currentNode} />
-          <MDXProvider components={mdxProviderComponents}>
-            <MDXRenderer>{mdx.body}</MDXRenderer>
+          <MDXProvider
+            components={{ ...MdxCustomizedComponents, ...MdxShortcodes }}
+          >
+            <MDXRenderer>{pageContext.body}</MDXRenderer>
           </MDXProvider>
         </Layout>
       </ThemeProvider>
@@ -64,33 +56,11 @@ export default function ContentPage({
 
 export const pageQuery = graphql`
   query ContentPageQuery($id: String) {
-    mdx(id: { eq: $id }) {
+    pageContext: mdx(id: { eq: $id }) {
       id
       body
       frontmatter {
         title
-      }
-    }
-    allMdx(sort: { fields: slug }) {
-      edges {
-        node {
-          id
-          slug
-          frontmatter {
-            title
-            display_order
-          }
-          tableOfContents
-        }
-      }
-    }
-    contentImagesRelativePath: allFile(
-      filter: { sourceInstanceName: { eq: "content-images" } }
-    ) {
-      edges {
-        node {
-          relativePath
-        }
       }
     }
   }

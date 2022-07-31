@@ -24,7 +24,7 @@ const TableOfContentsNode = props => {
   return (
     <Fragment>
       <StyledEntry
-        entry={{ url: slug + node.url, title: node.title }}
+        entry={{ url: `/${slug}${node.url}`, title: node.title }}
         expansionState={hasChildren ? open : null}
         handleExpansionClick={hasChildren ? handleClick : null}
       />

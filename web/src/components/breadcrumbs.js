@@ -43,7 +43,7 @@ const Breadcrumbs = props => {
         {breadcrumbNodes.map((node, index, array) => {
           if (index < array.length - 1) {
             return (
-              <StyledLink key={node.id} to={node.slug}>
+              <StyledLink key={node.id} to={`/${node.slug}`}>
                 {node.title}
               </StyledLink>
             )

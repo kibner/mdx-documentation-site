@@ -1,4 +1,5 @@
 import React from "react"
+import { useContentImagesRelativePathQuery } from "../../../static-queries/use-content-images-relative-path-query"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { styled } from "@mui/material/styles"
 
@@ -7,9 +8,8 @@ const StyledImg = styled("img")(({ theme }) => ({
 }))
 
 const MdxImage = props => {
-  const image = props.content_images_relative_path.edges.find(
-    edge => edge.node.relativePath === props.src
-  )
+  const contentImages = useContentImagesRelativePathQuery()
+  const image = contentImages.find(edge => edge.node.relativePath === props.src)
 
   if (!image?.node?.childImageSharp?.gatsbyImageData) {
     return <StyledImg {...props} />

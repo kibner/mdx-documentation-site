@@ -13,7 +13,7 @@ import { useAllMDXMetadataQuery } from "../static-queries/use-all-mdx-metadata-q
 
 export default function NotFoundPage() {
   const allMDXMetadata = useAllMDXMetadataQuery()
-  const navigationTree = BuildNavigationTree(allMDXMetadata.edges)
+  const navigationTree = BuildNavigationTree(allMDXMetadata)
   const theme = useTheme()
 
   return (

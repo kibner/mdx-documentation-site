@@ -24,7 +24,7 @@ import { useAllMDXMetadataQuery } from "../static-queries/use-all-mdx-metadata-q
 
 export default function ContentPage({ data: { pageContext } }) {
   const allMDXMetadata = useAllMDXMetadataQuery()
-  const navigationTree = BuildNavigationTree(allMDXMetadata.edges)
+  const navigationTree = BuildNavigationTree(allMDXMetadata)
   const currentNode = GetNodeById(navigationTree, pageContext.id)
   const breadcrumbNodes = GetBreadcrumbNodes(navigationTree, currentNode)
   const theme = useTheme()

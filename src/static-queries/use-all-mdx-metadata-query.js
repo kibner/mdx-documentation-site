@@ -20,5 +20,5 @@ export const useAllMDXMetadataQuery = () => {
       }
     `
   )
-  return allMDXMetadata
+  return allMDXMetadata.edges
 }

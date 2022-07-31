@@ -20,6 +20,7 @@ import {
   useTheme,
 } from "@mui/material/styles"
 import { graphql } from "gatsby"
+import { useAllMDXMetadataQuery } from "../static-queries/use-all-mdx-metadata-query"
 
 export default function ContentPage({
   data: { mdx, allMdx, contentImagesRelativePath },
@@ -36,7 +37,9 @@ export default function ContentPage({
     ...MdxShortcodes,
     img: imageWithExtraProps,
   }
-  const navigationTree = BuildNavigationTree(allMdx.edges)
+
+  const allMDXMetadata = useAllMDXMetadataQuery()
+  const navigationTree = BuildNavigationTree(allMDXMetadata.edges)
   const currentNode = GetNodeById(navigationTree, mdx.id)
   const breadcrumbNodes = GetBreadcrumbNodes(navigationTree, currentNode)
   const theme = useTheme()
@@ -69,19 +72,6 @@ export const pageQuery = graphql`
       body
       frontmatter {
         title
-      }
-    }
-    allMdx(sort: { fields: slug }) {
-      edges {
-        node {
-          id
-          slug
-          frontmatter {
-            title
-            display_order
-          }
-          tableOfContents
-        }
       }
     }
     contentImagesRelativePath: allFile(

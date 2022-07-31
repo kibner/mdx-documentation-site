@@ -9,10 +9,11 @@ import {
   ThemeProvider,
   useTheme,
 } from "@mui/material/styles"
-import { graphql } from "gatsby"
+import { useAllMDXMetadataQuery } from "../static-queries/use-all-mdx-metadata-query"
 
-export default function NotFoundPage({ data: { allMdx } }) {
-  const navigationTree = BuildNavigationTree(allMdx.edges)
+export default function NotFoundPage() {
+  const allMDXMetadata = useAllMDXMetadataQuery()
+  const navigationTree = BuildNavigationTree(allMDXMetadata.edges)
   const theme = useTheme()
 
   return (
@@ -30,21 +31,3 @@ export default function NotFoundPage({ data: { allMdx } }) {
     </StyledEngineProvider>
   )
 }
-
-export const pageQuery = graphql`
-  query NotFoundPageQuery {
-    allMdx(sort: { fields: slug }) {
-      edges {
-        node {
-          id
-          slug
-          frontmatter {
-            title
-            display_order
-          }
-          tableOfContents
-        }
-      }
-    }
-  }
-`

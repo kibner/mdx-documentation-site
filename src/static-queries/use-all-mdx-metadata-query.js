@@ -4,7 +4,7 @@ export const useAllMDXMetadataQuery = () => {
   const { allMDXMetadata } = useStaticQuery(
     graphql`
       query AllMDXMetadata {
-        allMDXMetadata: allMdx(sort: {fields: slug}) {
+        allMDXMetadata: allMdx(sort: { fields: slug }) {
           edges {
             node {
               id

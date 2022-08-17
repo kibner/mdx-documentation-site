@@ -7,7 +7,12 @@ collections:
   - name: "page"
     label: "Page"
     folder: "content/pages"
+    extension: "mdx"
+    format: "frontmatter"
+    nested:
+      depth: 100
     create: true
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Display Order", name: "display order", widget: "number", value_type: "int", min: 0, default: 0}
+      - {label: "Body", name: "body", widget: "markdown"}

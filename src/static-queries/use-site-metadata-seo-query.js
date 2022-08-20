@@ -7,6 +7,9 @@ export const useSiteMetadataSEOQuery = () => {
         site {
           siteMetadata {
             title
+            description
+            lang
+            image
           }
         }
       }

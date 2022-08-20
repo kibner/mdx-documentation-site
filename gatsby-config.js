@@ -3,9 +3,10 @@ module.exports = {
     title: `MDX Documentation Site`,
     description: `A documentation site that uses MDX pages for content.`,
     author: `John D'Oriocourt`,
+    image: `src/images/gatsby-icon.png`,
+    lang: `en`,
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -50,6 +51,7 @@ module.exports = {
         ],
       },
     },
+    `gatsby-theme-material-ui`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -58,13 +60,12 @@ module.exports = {
         description: "A documentation site that uses MDX pages for content.",
         lang: "en",
         start_url: `/`,
-        background_color: `#303030`,
-        theme_color: `#424242`,
+        background_color: `#121212`,
+        theme_color: `#303030`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-theme-material-ui`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

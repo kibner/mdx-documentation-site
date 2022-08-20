@@ -1,5 +1,5 @@
 import React from "react"
-import Seo from "../components/seo"
+import { Seo } from "../components/seo"
 import { Typography } from "@mui/material"
 import Layout from "../components/layout/layout"
 import BuildNavigationTree from "../components/helpers/build-navigation-tree"
@@ -20,7 +20,6 @@ export default function NotFoundPage() {
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
         <Layout navigationTree={navigationTree}>
-          <Seo title="404: Not found" />
           <Typography variant={"h1"}>404: Not Found</Typography>
           <MdxDivider variant={"fullWidth"} />
           <Typography paragraph>
@@ -31,3 +30,5 @@ export default function NotFoundPage() {
     </StyledEngineProvider>
   )
 }
+
+export const Head = () => <Seo title="404: Not found" />

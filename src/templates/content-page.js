@@ -3,7 +3,6 @@ import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Typography } from "@mui/material"
 import Layout from "../components/layout/layout"
-import Seo from "../components/seo"
 import MdxCustomizedComponents from "./configs/mdx-customized-components"
 import MdxShortcodes from "./configs/mdx-shortcodes"
 import BuildNavigationTree from "../components/helpers/build-navigation-tree"
@@ -21,6 +20,7 @@ import {
 } from "@mui/material/styles"
 import { graphql } from "gatsby"
 import { useAllMDXMetadataQuery } from "../static-queries/use-all-mdx-metadata-query"
+import { Seo } from "../components/seo"
 
 export default function ContentPage({ data: { pageContext } }) {
   const allMDXMetadata = useAllMDXMetadataQuery()
@@ -36,7 +36,6 @@ export default function ContentPage({ data: { pageContext } }) {
           navigationTree={navigationTree}
           breadcrumbNodes={breadcrumbNodes}
         >
-          <Seo title={pageContext.frontmatter.title} />
           <Breadcrumbs breadcrumbNodes={breadcrumbNodes} />
           <Typography variant={"h1"}>
             {pageContext.frontmatter.title}
@@ -53,6 +52,8 @@ export default function ContentPage({ data: { pageContext } }) {
     </StyledEngineProvider>
   )
 }
+
+export const Head = () => <Seo title="test" />
 
 export const pageQuery = graphql`
   query ContentPageQuery($id: String) {

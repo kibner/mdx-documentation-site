@@ -1,77 +1,28 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
 import React from "react"
-import PropTypes from "prop-types"
-import { Helmet } from "react-helmet"
 import { useSiteMetadataSEOQuery } from "../static-queries/use-site-metadata-seo-query"
 
-function Seo(props) {
-  const { description, lang, meta, title } = props
-  const siteMetadata = useSiteMetadataSEOQuery()
-  const metaDescription = description || siteMetadata.description
-  const defaultTitle = siteMetadata?.title
+export const Seo = ({ title, description, lang, children }) => {
+  const {
+    title: defaultTitle,
+    description: defaultDescription,
+    lang: defaultLang,
+    image,
+  } = useSiteMetadataSEOQuery()
+
+  const seo = {
+    title: defaultTitle ? `${title} | ${defaultTitle}` : defaultTitle,
+    description: description || defaultDescription,
+    lang: lang || defaultLang,
+    image: `${image}`,
+  }
 
   return (
-    <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={title}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: siteMetadata?.author || ``,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ].concat(meta)}
-    />
+    <>
+      <title>{seo.title}</title>
+      <meta name="description" content={seo.description} />
+      <meta name="image" content={seo.image} />
+      {/*<meta name="theme-color" content="#424242">*/}
+      {children}
+    </>
   )
 }
-
-Seo.defaultProps = {
-  lang: `en`,
-  meta: [],
-  description: ``,
-}
-
-Seo.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
-}
-
-export default Seo

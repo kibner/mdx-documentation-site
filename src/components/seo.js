@@ -21,7 +21,6 @@ export const Seo = ({ title, description, lang, children }) => {
       <title>{seo.title}</title>
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
-      {/*<meta name="theme-color" content="#424242">*/}
       {children}
     </>
   )

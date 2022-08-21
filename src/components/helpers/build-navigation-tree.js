@@ -1,11 +1,11 @@
 import SortNavigationTree from "./sort-navigation-tree"
 
-const BuildNavigationTree = edges => {
+const BuildNavigationTree = nodes => {
   const result = []
   const level = { result }
 
-  edges.forEach(edge => {
-    edge.node.slug.split("/").reduce((accumulator, currentValue) => {
+  nodes.forEach(node => {
+    node.slug.split("/").reduce((accumulator, currentValue) => {
       if (currentValue === "") {
         return accumulator
       }
@@ -17,11 +17,11 @@ const BuildNavigationTree = edges => {
 
         accumulator.result.push({
           children: accumulator[currentValue].result,
-          id: edge.node.id,
-          title: edge.node.frontmatter.title,
-          display_order: edge.node.frontmatter.display_order,
-          slug: edge.node.slug,
-          table_of_contents: edge.node.tableOfContents,
+          id: node.id,
+          title: node.frontmatter.title,
+          display_order: node.frontmatter.display_order,
+          slug: node.slug,
+          table_of_contents: node.tableOfContents,
         })
       }
 

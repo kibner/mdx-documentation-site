@@ -7,10 +7,8 @@ export const useAllMDXMetadataQuery = () => {
         allMDXMetadata: allMdx(sort: { fields: fields___slug }) {
           nodes {
             id
+            slug
             tableOfContents
-            fields {
-              slug
-            }
             frontmatter {
               title
               display_order
@@ -21,5 +19,5 @@ export const useAllMDXMetadataQuery = () => {
     `
   )
 
-  return allMDXMetadata.edges
+  return allMDXMetadata.nodes
 }

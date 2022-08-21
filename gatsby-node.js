@@ -6,6 +6,7 @@ slug.charmap[`/`] = `/` // prevents discard of '/' character
 
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions
+
   if (node.internal.type === `Mdx`) {
     const parentNode = getNode(node.parent)
 
@@ -26,6 +27,17 @@ exports.onCreateNode = ({ node, actions }) => {
   }
 }
 
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+
+  // give alias to slug for backwards-compatibility
+  createTypes(`#graphql
+    type Mdx implements Node {
+      slug: String @proxy(from: "fields.slug")
+    }
+  `)
+}
+
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
   const postTemplate = path.resolve(`./src/templates/content-page.jsx`)
@@ -37,9 +49,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       allMdx {
         nodes {
           id
-          fields {
-            slug
-          }
+          slug
           internal {
             contentFilePath
           }
@@ -54,7 +64,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   result.data.allMdx.nodes.forEach(node => {
     createPage({
-      path: `/${node.fields.slug}`,
+      path: `/${node.slug}`,
       component: `${postTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
       // Data passed to context is available
       // in page queries as GraphQL variables.

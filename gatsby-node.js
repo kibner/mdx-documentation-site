@@ -1,25 +1,34 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/node-apis/
- */
-
-// You can delete this file if you're not using it
-
 const path = require(`path`)
+const slug = require("slug")
+const { getNode } = require("gatsby/dist/datastore")
+
+exports.onCreateNode = ({ node, actions }) => {
+  const { createNodeField } = actions
+  if (node.internal.type === `Mdx`) {
+    createNodeField({
+      node,
+      name: `slug`,
+      value: `/${slug(getNode(node.parent).relativePath)}`,
+    })
+  }
+}
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
+  const postTemplate = path.resolve(`./src/templates/content-page.jsx`)
 
   // **Note:** The graphql function call returns a Promise
   // see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise for more info
   const result = await graphql(`
     query {
       allMdx {
-        edges {
-          node {
-            id
+        nodes {
+          id
+          fields {
             slug
+          }
+          internal {
+            contentFilePath
           }
         }
       }
@@ -30,10 +39,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query')
   }
 
-  result.data.allMdx.edges.forEach(({ node }) => {
+  result.data.allMdx.nodes.forEach(node => {
     createPage({
-      path: `/${node.slug}`,
-      component: path.resolve(`./src/templates/content-page.jsx`),
+      path: node.fields.slug,
+      component: `${postTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
       // Data passed to context is available
       // in page queries as GraphQL variables.
       context: {

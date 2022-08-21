@@ -1,6 +1,5 @@
 import React from "react"
 import { MDXProvider } from "@mdx-js/react"
-import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Typography } from "@mui/material"
 import Layout from "../components/layout/layout"
 import MdxCustomizedComponents from "./configs/mdx-customized-components"
@@ -22,10 +21,10 @@ import { graphql } from "gatsby"
 import { useAllMDXMetadataQuery } from "../static-queries/use-all-mdx-metadata-query"
 import { Seo } from "../components/seo"
 
-export default function ContentPage({ data: { pageContext } }) {
+export default function ContentPage({ data: { mdx }, children }) {
   const allMDXMetadata = useAllMDXMetadataQuery()
   const navigationTree = BuildNavigationTree(allMDXMetadata)
-  const currentNode = GetNodeById(navigationTree, pageContext.id)
+  const currentNode = GetNodeById(navigationTree, mdx.id)
   const breadcrumbNodes = GetBreadcrumbNodes(navigationTree, currentNode)
   const theme = useTheme()
 
@@ -37,15 +36,13 @@ export default function ContentPage({ data: { pageContext } }) {
           breadcrumbNodes={breadcrumbNodes}
         >
           <Breadcrumbs breadcrumbNodes={breadcrumbNodes} />
-          <Typography variant={"h1"}>
-            {pageContext.frontmatter.title}
-          </Typography>
+          <Typography variant={"h1"}>{mdx.frontmatter.title}</Typography>
           <MdxDivider variant={"fullWidth"} />
           <TableOfContents currentNode={currentNode} />
           <MDXProvider
             components={{ ...MdxCustomizedComponents, ...MdxShortcodes }}
           >
-            <MDXRenderer>{pageContext.body}</MDXRenderer>
+            {children}
           </MDXProvider>
         </Layout>
       </ThemeProvider>
@@ -53,15 +50,12 @@ export default function ContentPage({ data: { pageContext } }) {
   )
 }
 
-export const Head = ({ data }) => (
-  <Seo title={data.pageContext.frontmatter.title} />
-)
+export const Head = ({ data }) => <Seo title={data.mdx.frontmatter.title} />
 
 export const pageQuery = graphql`
-  query ContentPageQuery($id: String) {
-    pageContext: mdx(id: { eq: $id }) {
+  query ($id: String!) {
+    mdx(id: { eq: $id }) {
       id
-      body
       frontmatter {
         title
       }

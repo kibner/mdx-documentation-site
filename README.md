@@ -47,7 +47,7 @@ with more granulated navigation than the navigation bar provides.
 
 ## Template/Layout
 
-The page template that is used for all content pages is found at `/src/templates/content-page.js`. This is also where the layout
+The page template that is used for all content pages is found at `/src/templates/content-page.jsx`. This is also where the layout
 is defined.
 
 ## Shortcodes

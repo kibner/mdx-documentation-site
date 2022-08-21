@@ -53,7 +53,7 @@ export default function ContentPage({ data: { pageContext } }) {
   )
 }
 
-// export const Head = () => <Seo title="test" />
+export const Head = () => <Seo title="test" />
 
 export const pageQuery = graphql`
   query ContentPageQuery($id: String) {

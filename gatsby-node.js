@@ -1,14 +1,27 @@
 const path = require(`path`)
 const slug = require("slug")
-const { getNode } = require("gatsby/dist/datastore")
+const { getNode } = require(`gatsby/dist/datastore`)
+
+slug.charmap[`/`] = `/` // prevents discard of '/' character
 
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === `Mdx`) {
+    const parentNode = getNode(node.parent)
+
+    const relativePathWithoutExtension = parentNode.relativePath.slice(
+      0,
+      parentNode.relativePath.length - parentNode.ext.length
+    )
+
     createNodeField({
       node,
       name: `slug`,
-      value: `/${slug(getNode(node.parent).relativePath)}`,
+      value: `${slug(
+        relativePathWithoutExtension === `index`
+          ? ``
+          : relativePathWithoutExtension
+      )}`,
     })
   }
 }
@@ -41,7 +54,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   result.data.allMdx.nodes.forEach(node => {
     createPage({
-      path: node.fields.slug,
+      path: `/${node.fields.slug}`,
       component: `${postTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
       // Data passed to context is available
       // in page queries as GraphQL variables.

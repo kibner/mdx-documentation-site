@@ -23,17 +23,15 @@ const StyledHeader = styled(Typography)(({ theme }) => {
         singleSpacingPixels
       }px`,
     },
-    "&:hover > a.anchor > svg": {
-      visibility: "visible",
-    },
-    "&>a": {
-      fill: theme.palette.text.secondary,
-      position: "absolute",
-      transform: "translateX(-100%)",
-      paddingRight: theme.spacing(0.5),
-      "&>svg": {
-        visibility: "hidden",
-        verticalAlign: "text-top",
+    "& > a.anchor": {
+      height: "100%",
+      "& > div": {
+        height: "100%",
+        display: "flex",
+        alignItems: "center",
+        "& > svg": {
+          fill: theme.palette.text.secondary,
+        },
       },
     },
   }

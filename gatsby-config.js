@@ -49,6 +49,9 @@ module.exports = {
             },
           },
         ],
+        mdxOptions: {
+          remarkPlugins: [require(`remark-gfm`)],
+        },
       },
     },
     `gatsby-theme-material-ui`,

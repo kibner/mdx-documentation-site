@@ -15,14 +15,16 @@ exports.onCreateNode = ({ node, actions }) => {
       parentNode.relativePath.length - parentNode.ext.length
     )
 
+    let sluggedPath = ""
+
+    if (relativePathWithoutExtension !== `index`) {
+      sluggedPath = slug(relativePathWithoutExtension)
+    }
+
     createNodeField({
       node,
       name: `slug`,
-      value: `${slug(
-        relativePathWithoutExtension === `index`
-          ? ``
-          : relativePathWithoutExtension
-      )}`,
+      value: sluggedPath,
     })
   }
 }
